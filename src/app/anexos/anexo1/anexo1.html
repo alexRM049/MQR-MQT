@@ -1,0 +1,229 @@
+<header>
+    <h1>Formulario de Registros y Seguimiento de Quejas, Reclamos, Solicitudes o Sugerencias (QRSS)</h1>
+
+</header>
+
+<main>
+    
+<section>
+    <app-redirect-hp></app-redirect-hp>
+
+    <form (ngSubmit)="onSubmit()">
+
+<div>
+        <h4>Unidad Ejecutora</h4>
+    
+    <label for="numeroCaso">Numero de caso:
+    <input required type="text" name="numeroCaso" [(ngModel)]="formData.numeroCaso">
+    </label>
+
+    <div>
+        <label class="form-label" for = "Unidad-Ejecutora">Indicar la Unidad Ejecutora:
+        <select name="Unidad-Ejecutora" required [(ngModel)]="formData.Unidad_Ejecutora">
+            <option value="MISPAS">MISPAS</option>
+            <option value="MIVHED">MIVHED</option>
+        </select>
+        </label>
+    </div>    
+        
+</div>
+
+    
+
+    <div>
+            <h4 class="title">Nombre del proyecto</h4>
+            <h2 class="title">PROYECTO DE APOYO AL FORTALECIMIENTO DEL SISTEMA NACIONAL DE SALUD DE LA REPUBLICA DOMINICANA</h2>
+            <P>(P180349)</P> 
+    </div>
+    <div>
+        <label for="fecha-hora">Fecha y hora de la Recepción:</label>
+        <br>
+    
+    <div class="date-input-container">
+    <input type="datetime-local" id="event-date" name="event-date" [(ngModel)]="formData.fecha_hora_recepcion">
+    </div>
+        
+    </div>
+
+    <div>
+        <label for="lugar">Lugar de Recepción de QRSS:
+        <input name="lugar" type="text" id="lugar" [(ngModel)]="formData.lugar">
+       </label>
+    </div>
+
+    <div>
+        <label for="recibido-por">Recibido por (nombre y puesto):
+        <input name="recibido-por" type="text" id="recibido-por" [(ngModel)]="formData.recibido_por">
+        </label>
+    </div>
+
+    <div>
+        <h4 class="title">Medios de Recepción:</h4>
+        <div>
+        <label for="verbal"> 
+        <input (click)="selectedOption.set(null)" value="Verbal" name="recepcion" class="radio-in" type="radio" id="verbal" [(ngModel)]="formData.medios_recepcion">
+        Verbal</label>
+        </div>
+        <div>
+        <label for="telefonico"> 
+        <input (click)="selectedOption.set(null)" value="Telefonico" name="recepcion" class="radio-in" type="radio" id="telefonico" [(ngModel)]="formData.medios_recepcion">
+         Telefonico</label>
+        </div>
+        <div>
+        <label for="oficina">   
+        <input (click)="selectedOption.set(null)" value="Oficina de Atencion Permanente" name="recepcion" class="radio-in" type="radio" id="oficina" [(ngModel)]="formData.medios_recepcion">
+         Oficina de Atencion Permanente</label>
+        </div>
+        <div>
+        <label for="otros">   
+        <input (click)="selectedOption.set(null)" value="Otros medios" name="recepcion" class="radio-in" type="radio" id="otros" [(ngModel)]="formData.medios_recepcion">
+        Otros medios</label>
+        </div>    
+        <input
+        name="recepcion"
+        class="radio-in" 
+        type ="radio" 
+        id="escrito"
+        value="Escrito"
+        [(ngModel)]="formData.medios_recepcion"
+        (click)="clickEscrito()"
+        (change) = "selectedOption.set('optionE')"
+        [checked] = "selectedOption() === 'optionE'">
+       <label for="escrito">Escrito</label>
+
+        @if(selectedOption() === 'optionE') {
+        <div animate.enter="slide-in" animate.leave="slide-out">
+        <h4 class="title">Especifique la recepcion escrita:</h4>
+        <div>
+        <input value="Carta" name="selectedOption" class="radio-in" type="radio" id="carta" [(ngModel)]="formData.carta_Recepcion">
+        <label for="carta"> Carta </label> 
+        </div>
+
+        <div>
+        <input value="Correo" name="selectedOption" class="radio-in" type="radio" id="correo" [(ngModel)]="formData.carta_Recepcion">
+        <label for="correo"> Correo electeronico:</label>
+        </div>
+
+        <div>
+        <input value="Virtual" name="selectedOption" class="radio-in" type="radio" id="virtual" [(ngModel)]="formData.carta_Recepcion">
+        <label for="virtual">Buzón virtual/whatsApp:</label>
+        </div>
+
+        <div>
+        <input value="Sugerebcia" name="selectedOption" class="radio-in" type="radio" id="sugerencia" [(ngModel)]="formData.carta_Recepcion">
+        <label for="sugerencia">Buzón de sugerencia:</label>
+        </div>
+    </div>
+        }
+      
+
+    </div>
+
+    <h2 class="title">I. DATOS PERSONALES (se permite QRSS anónimas)</h2>
+    <div>
+         <label class="label-input" for="nombre"> Nombre:
+        <input name="nombre"  type="text" id="nombre" [(ngModel)]="formData.nombre">
+        </label>
+       
+        <label class="label-input" for="apellido">Apellido:
+        <input name="apellido" type="text" id="apellido" [(ngModel)]="formData.apellido">
+        </label>
+
+        <label for="ciudad" class="label-input">Ciudad:
+        <input name="ciudad" type="text" id="ciudad" [(ngModel)]="formData.ciudad">
+        </label>
+
+        <label class="label-input" for="correoT">Correo Electronico:
+        <input name="correoT" type="email" id="correoT" [(ngModel)] = "formData.correoT">
+        </label>
+
+
+        <label for="otro">Otra informacion del contacto:
+        <input name="otro" type="text" id="otro" [(ngModel)]="formData.otro">
+        </label>
+
+        <h2 class="title">II. INFORMACION DEL CASO</h2>
+
+        <h4> 2.1. Tipo del caso</h4>
+
+        <div>
+            <p>Que va usted a registrar:</p>
+            <div>
+            <input value="Queja" name="registrar" class="radio-in" type="radio" id="queja" [(ngModel)]="formData.tipo_Caso">
+            <label for="queja">  Queja</label>
+            </div>
+             <div>
+            <input value="Reclamo" name="registrar" class="radio-in" type="radio" id="reclamo" [(ngModel)] ="formData.tipo_Caso">
+            <label for="reclamo">  Reclamo </label>
+            </div>
+             <div>
+            <input name="Solicitud" value="solicitud" name="registrar" class="radio-in" type="radio" id="solicitud" [(ngModel)] = "formData.tipo_Caso">
+            <label for="solicitud">  solicitud </label>
+            </div>
+             <div>
+            <input value="Sugerencia" name="registrar" class="radio-in" type="radio" id="sugerencia" [(ngModel)]="formData.tipo_Caso">
+            <label for="sugerencia">  sugerencia </label>
+            </div>
+             <div>
+            <label for="detalle"> Detalle la queja o reclamo, solicitud o sugerencia</label>
+            <textarea name="detalle" rows="4" cols="50" [(ngModel)]="formData.detalle"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="title"><label for="docu">2.3. Documentacion entregada por la parte inrersada (informe, fotografias, otros)</label></h4>
+            
+            <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile01">
+            </div>
+            
+
+            <div>
+               <h4 class="title"> 2.4 Lugar y Fecha del caso</h4> 
+               <label class="label-input" for="fecha-caso"> Fecha del caso:
+                <br>
+                <div class="date-input-container">
+                <input type="date" id="birth-date" name="birth-date">
+                </div>
+                </label> 
+
+                <label for="lugar-caso"> Lugar del caso:
+                    <input type="text" name="lugar caso" [(ngModel)]="formData.lugar_caso">
+                </label>
+            </div>
+   
+        </div>
+
+        <h2 class="title">III: Observaciones Adicionales</h2>
+        <label for="Obv.Ads">Escriba cualquier observacion adicional que quisiera agregar:</label>
+        <textarea name="Obv.Ads" id="Obv.Ads" rows="4" cols="50" [(ngModel)]="formData.Obv_Ads"></textarea>
+
+    </div>
+
+    <div>
+          <label for="NombreResponsable"> Nombre del responsable de la atencion:</label>
+        <input name="NombreResponsable" type="text" id="NombreResponsable" [(ngModel)]="formData.NombreResponsable">
+
+        <label for="cargo">Cargo:</label>
+        <input name="cargo" type="text" id="cargo" [(ngModel)]="formData.cargo">
+    </div>
+      
+
+        <button class="submit-button" type="submit">
+           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+            </svg>
+            Guardar</button>
+
+</form>
+
+
+
+</section>
+
+
+</main>
+
+<footer>
+    <app-footer></app-footer>
+</footer>

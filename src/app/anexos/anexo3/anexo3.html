@@ -1,0 +1,124 @@
+<header>
+    <h1>Formulario de Respuesta al caso No. <!--Introducir el numero del caso-->  </h1>
+
+</header>
+
+<main>
+
+    <app-redirect-hp></app-redirect-hp>
+<form (ngSubmit)="onSubmit()">
+<div>
+    <h4>Unidad Ejecutora</h4>
+
+    <label for="numeroCaso">Numero de caso:
+    <input required type="text" name="numeroCaso" [(ngModel)]="formsData.numeroCaso">
+    </label>
+    
+<div>
+    <label>Indicar Nombre de la Unidad Ejecutora:
+        <select name="Unidad-Ejecutora" [(ngModel)]="formsData.Unidad_Ejecutora">
+            <option value="MISPAS">MISPAS</option>
+            <option value="MIVHED">MIVHED</option>
+        </select>
+        </label>
+    </div>
+    
+</div>
+
+<div>
+    <h4 class="title">Nombre del Proyecto:</h4>
+
+    <h5>Proyecto de Apoyo al Fortalecimiento del Sistema Nacional de Salud de la República Dominicana (P180349)</h5>
+</div>
+
+<div>
+<label for="fecha">Fecha de Respuesta
+    <br>
+<div class="date-input-container">
+    <input type="date" id="birth-date" name="birth-date">
+</div>
+</label>
+</div>
+
+<h2>I. DATOS PERSONALES</h2>
+
+<div>
+    <h4>Digite sus datos personales:</h4>
+    <label class="label-input" for="nombre">Nombre:
+    <input name="nombre" type="text" id="nombre" [(ngModel)]="formsData.nombre">
+    </label>
+
+    <label class="label-input" for="apellido"> Apellido:
+    <input name="apellido" type="text" id="apellido" [(ngModel)]="formsData.apellido">
+    </label>
+
+    <label class="label-input" for="domicilio">Domicilio:
+    <input name="domicilio" type="text" id="domicilio" [(ngModel)]="formsData.domicilio">
+    </label>
+
+    <label for="distrito">Distrito:
+    <input name="distrito" type="text" id="distrito" [(ngModel)]="formsData.distrito">
+    </label>
+</div>
+
+<h2>II. RESPUESTA A LA QUEJA, RECLAMO, SOLICITUD, Y SUGERENCIA PRESENTADA</h2>
+
+<div>
+    <p>ESCENARIO No. 1 – (ACEPTADO PARA ANÁLISIS Y RESPUESTA):</p>
+
+    <p>Le informamos que su reclamo ha sido ACEPTADO, considerando que <!--(explicar las razones de la respuesta)--></p>
+
+    <p>Por ello, con la finalidad de brindar atención a lo presentado, Unidad Ejecutora de Proyectos del MISPAS o
+    Unidad Ejecutora de Proyectos del MIVHED (según aplique), realizará las siguientes acciones (indicar las
+    acciones):</p>
+
+    <textarea name="acciones" rows="10" cols="50" [(ngModel)]="formsData.acciones"></textarea>
+</div>
+
+<div>
+   <p>ESCENARIO No. 2 – (DENEGADO):</p> 
+
+   <p>Le informamos que, considerando <!--(explicar las razones de la respuesta)-->, su reclamo no podrá ser
+atendido por la Unidad Ejecutora del Proyecto</p>
+<div>
+    <label class="label-input" for="nombreresponsable">Nombre del responsable de atención:
+    <input name="nombreResponsable" type="text" id="nombreresponsable" [(ngModel)]="formsData.nombreresponsable">
+    </label>
+
+    <label class="label-input" for="cargoresponsable">Cargo:
+    <input name="cargoResponsable" type="text" id="cargoresponsable" [(ngModel)]="formsData.cargoresponsable">
+    </label>
+
+    <label for="firmaResponsable">Firma:
+    <input name="firmaResponsable" type="text" id="firmaResponsable" [(ngModel)]="formsData.firmaResponsable">
+    </label>
+</div>
+
+<div>
+    <label class="label-input" for="nombreinteresado">Nombre de la parte interesada que presentó la queja o reclamo:
+    <input name="nombreInteresado" type="text" id="nombreinteresado" [(ngModel)]="formsData.nombreinteresado">
+    </label>
+
+    <label class="label-input" for="cargointeresado">Cargo:
+    <input name="cargoInteresado" type="text" id="cargointeresado" [(ngModel)]="formsData.cargointeresado">
+    </label>
+
+    <label for="firmainteresado">Firma:
+    <input name="firmaInteresado" type="text" id="firmainteresado" [(ngModel)]="formsData.firmainteresado">
+    </label>
+</div>
+
+</div>
+
+<button class="submit-button" type="submit">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+            </svg>
+    Guardar</button>
+
+</form>
+</main>
+
+<footer>
+    <app-footer></app-footer>
+</footer>

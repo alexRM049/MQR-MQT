@@ -1,0 +1,70 @@
+
+  <app-header></app-header>
+
+
+<main>
+
+  <div class="p-3 mb-2 bg-transparent text-body">
+    <h2 class="como-utilizar">¿COMO UTILIZAR EL MQR Y MQT?</h2>
+    <p class="center-letters h5 dark-letters">Aprende en 3 pasos</p>
+    <i class="bi bi-1-circle"></i>
+  </div>
+
+<section class="container center">
+  <div class="row">
+    
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card border-light h-100">
+        <div class="card-header"><h2 class="number">1</h2></div>
+        <div class="card-body">
+          <h5 class="card-title">Identifica cuál es el tipo de reporte que necesitas realizar.</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card border-light h-100">
+        <div class="card-header"><h2 class="number">2</h2></div>
+        <div class="card-body">
+          <h5 class="card-title">Completa el formulario con la opción Identificada.</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card border-light h-100">
+        <div class="card-header"><h2 class="number">3</h2></div>
+        <div class="card-body">
+          <h5 class="card-title">Procede a enviar el formulario debidamente completado y será recibido por un equipo especializado para gestionar tu caso.</h5>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  
+</section>
+
+
+<h1 class="display-5 dark-letters title-space">Comienza ahora</h1>
+
+<section>
+    <ul >
+      <div class = "center-cards">
+        @for (anexoItem of listaAnexosget; track anexoItem.anexo){
+          <div class="carta-anexos">
+             <app-card-anexos
+            [anexos] = "anexoItem">
+            </app-card-anexos>  
+          </div>
+          
+             
+        }
+        </div>
+</ul>
+</section>
+
+
+</main>
+
+<app-footer></app-footer>

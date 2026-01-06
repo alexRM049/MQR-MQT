@@ -1,0 +1,108 @@
+<header>
+    <h1>Encuesta de satisfacción frente a la atención de una solicitud, queja o reclamo, solicitudes o
+sugerencias (anónimas y no anónimas)</h1>
+</header>
+
+
+<h3>El Programa de Apoyo al Fortalecimiento del Sistema Nacional de Salud de la República
+Dominicana, aprobado a través del Convenio de <b>Préstamo 9620-DO</b> con el Grupo Banco
+Mundial, valora mucho su opinión.</h3>
+
+<h3>Ahora que su proceso ha finalizado, por favor, ayúdenos a medir su nivel de satisfacción con
+sus respuestas a las siguientes preguntas:</h3>
+
+<main>
+
+<app-redirect-hp></app-redirect-hp>
+    
+<form (ngSubmit)="onSubmit()">
+    <div>
+        <label for="numeroCaso"> <h4>Numero de caso:</h4>
+    <input required type="text" name="numeroCaso" [(ngModel)]="formsData.numeroCaso">
+    </label> 
+    </div>
+    
+    <div>
+         <h4>En general, ¿está satisfecho(a) con la atención a su solicitud, queja o reclamo?</h4>
+
+         <div>
+         <input name="satisfecho" value="Si" type="radio" id="si-acepto" [(ngModel)]="formsData.satisfecho">
+         <label  for="si-acepto">Si</label>
+        </div>
+         <input name="satisfecho" value="No" type="radio" id="no-acepto" [(ngModel)]="formsData.satisfecho">
+         <label for="no-acepto">No</label>
+
+    </div>
+
+    <div>
+        <h4>En una escala de 1 a 5, donde 1 es “nada satisfecho(a)” y 5 es “completamente satisfecho(a)”,
+        por favor, indíquenos cuál es su nivel de satisfacción luego de recibir la respuesta a su
+        solicitud, queja o reclamo.</h4>
+       
+        <div>
+            <select name="nivel-satisfecho" [(ngModel)]="formsData.nivelSatisfecho">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+    </div>
+   
+    <div>
+        <h4>¿Su solicitud, queja o reclamo fue resuelto de forma…? </h4>
+
+        <div>
+            <h5>Respetuosa:</h5>
+
+            <input value="Si" name="respetuosa" type="radio" id="respetuosa" [(ngModel)]="formsData.respetuosa">
+            <label for="respetousa-si">Si</label>
+            <div>
+            <input value="No" name="respetuosa" type="radio" id="respetuosa" [(ngModel)]="formsData.respetuosa">
+            <label for="respetousa-no">No</label>
+            </div>
+        </div>
+        
+        <div>
+            <h5>Clara</h5>
+
+            <input value="Si" name="clara" type="radio" id="clara" [(ngModel)]="formsData.clara">
+            <label for="clara-si">Si</label>
+            <div>
+            <input value="No" name="clara-no" type="radio" id="clara" [(ngModel)]="formsData.clara">
+            <label for="clara-no">no</label>
+            </div>
+        </div>
+
+        <div>
+            <h5>Oportuna</h5>
+
+            <input value="Si" name="oportuna" type="radio" id="oportuna" [(ngModel)]="formsData.oportuna">
+            <label for="oportuna-si">Si</label>
+            <div>
+            <input value="No" name="oportuna" type="radio" id="oportuna" [(ngModel)]="formsData.oportuna">
+            <label for="oportuna-no">No</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+        <h4><label for="recomendacion">¿Tiene alguna recomendación adicional que quiera mencionar?</label></h4>
+        <textarea value="recomendacion" name="recomendacion" id="recomendacion" rows="10" cols="50" [(ngModel)]="formsData.recomendacion"></textarea>
+    </div>
+    <button class="submit-button" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+            </svg>
+        Guardar</button>
+</form>
+
+
+</main>
+
+<footer>
+    <app-footer></app-footer>
+</footer>

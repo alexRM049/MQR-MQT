@@ -1,0 +1,59 @@
+<app-header></app-header>
+<main>
+
+    <h1>Estado de Casos</h1>
+
+<p>Aqui podras ver el progreso de tu Caso</p>
+
+<section>
+        <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid" >
+    <form class="d-flex" role="search" (ngSubmit)="findCase()">
+      <input name="codigoStatus" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  [(ngModel)]="codigoStatus"/>
+      <button  class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</section>
+
+<div>
+     @if(isCodeEntered == true) {
+         <div animate.enter="slide-in" animate.leave="slide-out">
+       <section>
+    <table class="vertical-table">
+        <tr>
+            <th>Nombre</th>
+            <td>{{caseData.name}}</td>
+        </tr>
+        <tr>
+            <th>Apellido</th>
+            <td>{{caseData.lastName}}</td>
+        </tr>
+        <tr>
+            <th>Fecha</th>
+            <td>{{caseData.date | date:'short' }}</td>
+        </tr>
+       
+        <tr>
+            <th>Estado del caso</th>
+            
+            <td>
+                <span class="status-badge">{{caseData.status}}</span>
+            </td>
+        </tr> 
+        
+        <tr>
+            <th>Descripción</th>
+            <td>{{caseData.description}}</td>
+        </tr>
+
+
+    </table>
+</section>
+        </div>    
+    }
+</div>
+
+</main>
+
+<app-footer></app-footer>

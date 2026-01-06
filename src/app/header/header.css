@@ -1,0 +1,15 @@
+header{
+    background-color: #2A385E;
+    border-radius: 8px;
+}
+
+h1.title{
+     display: flex;
+    justify-content: center;
+    color: white;
+}
+
+img{
+    display: block;
+    margin: auto;
+}

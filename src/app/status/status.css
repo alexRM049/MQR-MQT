@@ -1,0 +1,132 @@
+/* Custom palette based on the image */
+:root {
+  --msp-navy: #1d2d4c;    /* The deep blue in the header */
+  --msp-blue-light: #2c3e50;
+  --msp-text-gray: #555555;
+  --msp-border: #dee2e6;
+  --msp-success: #28a745;
+}
+
+main {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 500px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #333;
+}
+
+h1 {
+  color: var(--msp-navy);
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  color: var(--msp-text-gray);
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* Search Section Styling */
+.navbar {
+  background-color: #f8f9fa !important;
+  border: 1px solid var(--msp-border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  border: 1px solid var(--msp-border);
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.btn-outline-success {
+  color: var(--msp-navy);
+  border-color: var(--msp-navy);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-success:hover {
+  background-color: var(--msp-navy);
+  color: white;
+  border-color: var(--msp-navy);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background-color: var(--msp-navy);
+  color: black;
+  font-weight: 500;
+  text-align: left;
+  padding: 15px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid var(--msp-border);
+  color: var(--msp-text-gray);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background-color: #f1f4f9;
+}
+
+/* Vertical Table Transformation */
+.vertical-table {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  border: 1px solid var(--msp-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.vertical-table tr {
+  display: flex;
+  flex-direction: column; /* This stacks them */
+  border-bottom: 1px solid var(--msp-border);
+}
+
+.vertical-table tr:last-child {
+  border-bottom: none;
+}
+
+.vertical-table th {
+  background-color: #f8f9fa;
+  color: var(--msp-navy);
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.vertical-table td {
+  width: 100%;
+  padding: 15px 20px;
+  font-weight: 500;
+  background-color: white;
+}
+

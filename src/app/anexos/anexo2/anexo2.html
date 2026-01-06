@@ -1,0 +1,83 @@
+
+<header>
+    <h1>Proyecto de Apoyo al Fortalecimiento del Sistema Nacional de Salud de la Republica Dominicana</h1>
+</header>
+
+
+<h5>(P180349)</h5>
+
+<h4>Buzón de sugerencias</h4>
+
+<h4>Estamos Comprometidos con brindarles el mejor servcio. Queremos escuchar tus opiniones para poder mejorar cada dia</h4>
+
+<main>
+
+<app-redirect-hp></app-redirect-hp>
+
+
+<form (ngSubmit)="onSubmit()">
+<h4>Datos de usuario</h4>
+
+<div>
+    <label class="label-input" for="nombre">Nombre:
+    <input name="nombre" type="text" id="nombre" [(ngModel)]="formData.nombre">
+    </label>
+
+    <label class="label-input" for="cedula">Cédula:
+    <input name="cedula" type="text" id="cedula" [(ngModel)]="formData.cedula">
+    </label>
+
+    <label for="correo" class="label-input"> Dirección de correo electronico:
+    <input name="correo" type="email" id="correo" [(ngModel)]="formData.correo">
+    </label>
+
+    <label for="fecha">Fecha:
+<div class="date-input-container">
+    <input type="date" id="birth-date" name="birth-date">
+</div>
+    </label>
+
+    <label class="tel-in" for="telefono">Telefono:
+    <input name="telefono" type="text" id="telefono" [(ngModel)]="formData.telefono">
+    </label>
+
+    <label for="lugar"> Lugar del Incidente
+    <input name = "lugar" type="text" id="lugar" [(ngModel)]="formData.lugar">
+    </label>
+</div>
+
+<div>
+    <label>Seleccionar tipo de accion:
+
+    <div>
+        <select name="tipo-accion" [(ngModel)]="formData.tipo_accion">
+            <option value="sugerencia">Sugerencia</option>
+            <option value="solicitud">Solicitud</option>
+            <option value="queja">Queja</option>
+            <option value="reclamo">Reclamo</option>
+        </select>
+    </div>
+   </label>
+</div>
+
+<div>
+    <label>Describa de forma detallada
+    <textarea name="detalle"  rows="10" cols="50" [(ngModel)]="formData.detalle"></textarea>
+    </label>
+</div>
+
+<button class="submit-button" type="submit">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+            </svg>
+
+    Guardar</button>
+
+</form>
+<h3 style=" margin-bottom: 20px; text-align: center;">¡Gracias su opinión es importante!</h3>
+</main>
+
+<footer>
+    <app-footer></app-footer>
+</footer>
+

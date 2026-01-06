@@ -1,0 +1,110 @@
+* General Layout */
+body {
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dialog/Card Container */
+dialog[open] {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  bottom: 50%;
+}
+
+/* Form Spacing */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Labels */
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+/* Input Fields */
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4299e1;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+/* Checkbox Section */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.form-check-input {
+  width: 1.1rem;
+  height: 1.1rem;
+  cursor: pointer;
+}
+
+.form-check-label {
+  font-size: 0.875rem;
+  color: #718096;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Submit Button */
+.btn-primary {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s active;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Backdrop for <dialog> */
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}

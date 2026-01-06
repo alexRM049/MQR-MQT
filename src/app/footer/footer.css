@@ -1,0 +1,20 @@
+*{
+    background-color: #2A385E;   
+}
+
+.title{
+    color: white;
+    text-align: center;
+}
+
+.sub-title{
+    color: white;
+    margin-top: 5px;
+}
+.social_media_icon{
+    color: white;
+    margin-top: 5px;
+    
+}
+
+ :host { display: block; }

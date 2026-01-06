@@ -1,0 +1,328 @@
+<header>
+    <h1>Formulario de registro de incidentes de explotación y
+abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
+
+</header>
+
+<app-redirect-hp></app-redirect-hp>
+
+<main>
+
+
+<form (ngSubmit)="onSubmit()">
+    <div>
+    <h4>Unidad Ejecutora</h4>
+
+    
+    <label for="numeroCaso">Numero de caso:
+    <input required type="text" name="numeroCaso" [(ngModel)]="formsData.numeroCaso">
+    </label>
+    
+    
+    <div>
+       <label for="Unidad-Ejecutora">Indicar Nombre de la Unidad Ejecutora:
+        <select name="Unidad-Ejecutora" [(ngModel)]="formsData.Unidad_Ejecutora">
+            <option value="MISPAS">MISPAS</option>
+            <option value="MIVHED">MIVHED</option>
+        </select>
+       </label> 
+    </div>
+    
+    </div>
+
+    <div>
+    <h4>Nombre del Proyecto</h4>
+    <h5>Proyecto de Apoyo al Fortalecimiento del Sistema Nacional de Salud de la República Dominicana (P180349)</h5>
+    </div>
+
+    <div>
+        <label for="subproyecto">Nombre del subproyecto:
+        <input name="subproyecto" type="text" id="subproyecto" [(ngModel)]="formsData.subproyecto">
+        </label>
+
+        <label for="conprosub">Nombre del contratista, proveedor o subcontratista:
+        <input name="conprosub" type="text" id="conprosub" [(ngModel)]="formsData.conprosub">
+        </label>
+
+        <label for="encargado">Nombre y firma del personal encargado del registro de incidentes de EyAS/ASx en la localidad:
+        <input name="encargado" type="text" id="encargado" [(ngModel)]="formsData.encargado">
+        </label>
+
+        <div>
+        <label for="fecha">Fecha y hora del incidente: 
+        <br/>
+        <div class="date-input-container">
+    <input type="datetime-local" id="event-date" name="event-date" [(ngModel)]="formsData.fecha_hora_incidente" required>
+    </div>
+        </label>
+
+        </div>
+        <label for="lugar">Lugar de Registro:
+        <input name="lugar" type="text" id="lugar" [(ngModel)]="formsData.lugar">
+        </label>
+        <br>
+        <label for="fecharecepcion">Fecha y hora de la Recepción: 
+        <br/>
+                <div class="date-input-container">
+    <input type="datetime-local" id="event-date" name="event-date" [(ngModel)]="formsData.fecha_hora_incidente" required>
+    </div>
+        </label>
+
+    </div>
+
+        <div>
+ <h5 class="title">Medios de Recepción</h5>
+        <div>
+        <input (click)="selectedOption.set(null)" value="verbal" name="recepcion" class="radio-in" type="radio" id="verbal" [(ngModel)]="formsData.medios_Recepcion">
+        <label for="verbal">Verbal</label>
+        </div>
+        <div>
+        <input (click)="selectedOption.set(null)" value="formsData.telefonico" name="recepcion" class="radio-in" type="radio" id="telefonico" [(ngModel)]="formsData.medios_Recepcion">
+        <label for="telefonico"> Telefonico</label>
+        </div>
+        <div>
+        <input (click)="selectedOption.set(null)" value="formsData.oficina" name="recepcion" class="radio-in" type="radio" id="oficina" [(ngModel)]="formsData.medios_Recepcion">
+        <label for="oficina"> Oficina de Atencion Permanente</label>
+        </div>
+        <div>
+        <input (click)="selectedOption.set(null)" value="formsData.otros" name="recepcion" class="radio-in" type="radio" id="otros" [(ngModel)]="formsData.medios_Recepcion">
+        <label for="otros">Otros medios</label>
+        </div>    
+        <input
+        name="recepcion"
+        class="radio-in" 
+        type ="radio" 
+        id="escrito"
+        value="escrito"
+        [(ngModel)]="formsData.medios_Recepcion"
+        (change) = "selectedOption.set('optionC')"
+        [checked] = "selectedOption() === 'optionC'">
+       <label for="escrito">Escrito</label>
+
+        @if(selectedOption() === 'optionC') {
+        
+        <h4 class="title">especifique la recepcion escrita:</h4>
+        <div animate.enter="slide-in" animate.leave="slide-out">
+        <div>
+        <input name="formsData.selectedOption" value="carta" type="radio" id="carta" [(ngModel)]="formsData.recepcion_Escrita">
+        <label for="carta"> Carta </label> 
+        </div>
+
+        <div>
+            <input name="selectedOption" value="Correo electeronico" type="radio" id="correo" [(ngModel)]="formsData.recepcion_Escrita">
+            <label for="correo"> Correo electeronico</label>
+        </div>
+        
+        <div>
+            <input name="selectedOption" value="Buzón virtual/whatsApp" type="radio" id="virtual" [(ngModel)]="formsData.recepcion_Escrita">
+            <label for="virtual">Buzón virtual/whatsApp</label> 
+        </div>
+
+        <div>
+            <input name="selectedOption" value="Buzón de sugerencia" type="radio" id="sugerencia" [(ngModel)]="formsData.recepcion_Escrita">
+            <label for="sugerencia">Buzón de sugerencia</label> 
+        </div>
+        </div>
+        }
+
+    </div>
+
+    <div>
+        <h5 class="title">Confidencialidad / Anonimato del reporte</h5>
+
+        
+        <input name="Confidencialidad" value="confidencial" type="radio" id="confidencial" [(ngModel)]="formsData.confidencial_Concentimiento">
+        <label for="confidencial">Confidencial</label>
+        <div>
+        <input name="Confidencialidad" value="anonimo" type="radio" id="anonimo" [(ngModel)]="formsData.confidencial_Concentimiento">
+        <label for="anonimo">Anónimo</label>
+        </div>
+        <div>
+        <input name="Confidencialidad" value="consentimiento dar su identidad" type="radio" id="consentimiento" [(ngModel)]="formsData.confidencial_Concentimiento">
+        <label for="">consentimiento dar su identidad</label>
+        </div>
+    </div>
+
+    <div>
+        <h5 class="title">Quien reporta</h5>
+        
+        <div>
+        <input (click)="selectedOption2.set(null)" name="quien-reporta" value="sobreviviente" type="radio" id="sobreviviente" [(ngModel)]="formsData.quien_Reporta">
+        <label for="sobreviviente">sobreviviente</label>
+        </div>
+        <div>
+        <input (click)="selectedOption2.set(null)" name="quien-reporta" value="tercera-persona" type="radio" id="terceros" [(ngModel)]="formsData.quien_Reporta">
+        <label for="terceros">Tercera persona</label>
+        </div>
+        <div>
+        <input (click)="selectedOption2.set(null)" name="quien-reporta" value="testigo" type="radio" id="testigo" [(ngModel)]="formsData.quien_Reporta">
+        <label for="testigo">Testigo</label>
+        </div>
+        
+        <input type="radio"
+        name="quien-reporta" 
+        value="otro"
+        id="otro"
+        value="option-otro"
+        (change) = "selectedOption2.set('option-otro')"
+        [checked] = "selectedOption2() === 'option-otro'"
+        [(ngModel)]="formsData.quien_Reporta">
+        <label for="otro"> Otro (especifique)</label>
+
+        @if(selectedOption2() === 'option-otro'){
+            <div animate.enter="slide-in" animate.leave="slide-out">
+            <label for="espeficifique">Favor espeficifique quien reporta:</label>
+            <input name="especifique" type="text" id="especifique" [(ngModel)]="formsData.especifique">
+            </div>
+        }
+
+    </div>
+
+    <h2>I. DATOS DEL AGENTE GENERADOR</h2>
+
+    <div>
+        <label class="label-input"  for="org" >UEP, MISPAS, MIVHED, SNS:
+        <input name="org" type="text" id="org" [(ngModel)]="formsData.org">
+        </label>
+
+        <label class="label-input"  for="contratista">Contratistas:
+        <input name="contratista" type="text" id="contratista" [(ngModel)]="formsData.contratista">
+        </label>
+
+        <label class="label-input"  for="subcontratista">subcontratista:
+        <input name="subcontratista" type="text" id="subcontratista" [(ngModel)]="formsData.subcontratista">
+        </label>
+
+        <label for="proveedor"> Proveedores de servicios:
+        <input name="proveedor" type="text" id="proveedor" [(ngModel)]="formsData.proveedor">
+        </label>
+    </div>
+
+    <h2>II. INFORMACION DEL CASO</h2>
+
+    <div>
+        <h5 class="title"><b>2.1 Tipo de caso</b></h5>
+
+        <p>Que va usted a realizar:</p>
+
+        <div>
+        <input name="realizar" value="Explotacion Sexual" type="radio" id="explotacion" [(ngModel)]="formsData.tipo_Reporte">
+        <label for="explotacion">Explotación Sexual</label>
+        </div>
+        <div>
+        <input name="realizar" value="Acoso Sexual" type="radio" id="acoso" [(ngModel)]="formsData.tipo_Reporte">
+        <label for="acoso">Acoso Sexual</label>
+        </div>
+
+        <input name="realizar" value="Abuso Sexual" type="radio" id="abuso" [(ngModel)]="formsData.tipo_Reporte">
+        <label for="abuso">Abuso Sexual</label>
+
+    </div>
+
+    <div>
+        <h5 class="title"><b>2.2 Breve detalle del incidente</b></h5>
+
+        <textarea name="detalle" rows="10" cols="50" [(ngModel)]="formsData.detalle"></textarea>
+    </div>
+
+    <div>
+        <h5 class="title"><label for="documento"> <b>2.3 Documentación entregada por el titular</b>
+        <br/>
+        <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile01">
+            </div>
+        </label></h5>
+    </div>
+
+    <div>
+        <h5 class="title"><b>2.4 Lugar y fecha del caso</b></h5>
+
+        <label for="lugar-caso">Lugar del caso:</label>
+        <input name="lugar-caso" type="text" id="lugar-caso" [(ngModel)]="formsData.lugar_caso">
+
+        <label for="fecha-caso"> Fecha del caso:</label>
+        <br/>
+        <div class="date-input-container">
+                <input type="date" id="birth-date" name="birth-date">
+                </div>
+    </div>
+
+    <div>
+        <h5 class="title"><b>2.5 Persona Sobreviviente</b></h5>
+        
+        <label for="genero">2.5.1 Sexo de la persona sobreviviente:</label>
+        <select id="genero" name="genero" [(ngModel)]="formsData.genero_sobreviviente">
+            <option value="femenino">Femenino</option>
+            <option value="masculino">masculino</option>
+            <option value="otro">Otro / Prefiere no especificar</option>
+        </select>
+        
+        <label for="edad">2.5.2 Edad o grupo etario de la persona sobreviviente:</label>
+        <select id="edad" name="edad" [(ngModel)]="formsData.edad_sobreviviente">
+            <option value="menor">Menor de edad (<10 años)</option>
+            <option value="mayor">Persona adulta (≥18 años)</option>
+            <option value="no-especifica">No especificado</option>
+        </select>
+
+        <label for="relacion">2.5.3 Relación con el proyecto:</label>
+        <select id="relacion" name="relacion" [(ngModel)]="formsData.relacion_sobreviviente">
+            <option value="default">Elija una de las opciones</option>
+            <option value="contratista">Trabajadora del proyecto / contratista </option>
+            <option value="miembro">Miembro de la comunidad</option>
+            <option value="PIU">Personal de la PIU / institución ejecutora</option>
+            <option value="otro">Otro (especifique)</option>
+        </select>
+    </div>
+
+    <h5 class="title"><b>2.6 Presunto agresor</b></h5>
+
+    <div>
+        <label for="genero">2.6.1 Sexo del agresor:</label>
+        <select id="genero" name="genero" [(ngModel)]="formsData.genero_agresor">
+            <option value="femenino">Femenino</option>
+            <option value="masculino">masculino</option>
+            <option value="otro">Otro / Prefiere no especificar</option>
+        </select>
+
+        <label for="edad">2.6.2 Edad o grupo etario del agresor:</label>
+        <select id="edad" name="edad" [(ngModel)]="formsData.edad_genero">
+            <option value="menor">Menor de edad (<10 años)</option>
+            <option value="mayor">Persona adulta (≥18 años)</option>
+            <option value="no-especifica">No especificado</option>
+        </select>
+
+        <label for="relacion">2.6.3 Relación con el proyecto:</label>
+        <select id="relacion" name="relacion" [(ngModel)]="formsData.relacion_agresor">
+            <option value="default">Elija una de las opciones</option>
+            <option value="contratista">Trabajadora del proyecto / contratista </option>
+            <option value="miembro">Miembro de la comunidad</option>
+            <option value="PIU">Personal de la PIU / institución ejecutora</option>
+            <option value="otro">Otro (especifique)</option>
+        </select>
+    </div>
+
+    <h2 class="title">III. OBSERVACIONES ADICIONALES</h2>
+    <div>
+    <label for="adicional">alguna observación que desea agregar:</label>
+    <textarea name="adicional" id="adicional" rows="10" cols="50" [(ngModel)]="formsData.adicional"></textarea>
+    </div>
+
+    <label for="nombreresponsable"> Nombre del resonsable de la atención:</label>
+    <input name="nombreresponsable" type="text" id="nombreresponsable" [(ngModel)]="formsData.nombreresponsable">
+
+    <label for="cargoresponsable">Cargo:</label>
+    <input name="cargoresonsable" type="text" id="cargoresonsable" [(ngModel)]="formsData.cargoresonsable">
+
+    <button class="submit-button" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+            </svg>
+        Guardar
+    </button>
+
+</form>
+</main>
+
+<footer>
+    <app-footer></app-footer>
+</footer>

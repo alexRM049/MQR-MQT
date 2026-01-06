@@ -1,0 +1,136 @@
+<header>
+    <h1>Formulario de Cierre del caso No. <!--Introducir el numero del caso--></h1>
+
+</header>
+
+<main>
+
+<app-redirect-hp></app-redirect-hp>
+
+<form (ngSubmit)="onSubmit()">
+<div>
+    <h4>Unidad Ejecutora:</h4>
+
+    <label for="numeroCaso">Numero de caso:
+    <input required type="text" name="numeroCaso" [(ngModel)]="formsData.numeroCaso">
+    </label>
+    
+    <div>
+      <label for="Unidad-Ejecutora">Indicar Nombre de la Unidad Ejecutora:
+        <select name="Unidad-Ejecutora" [(ngModel)]="formsData.Unidad_Ejecutora">
+            <option value="MISPAS">MISPAS</option>
+            <option value="MIVHED">MIVHED</option>
+        </select>
+        </label>
+    </div>
+</div>
+
+<div>
+    <h4 class="title">Nombre del Proyecto:</h4>
+
+    <h5>Proyecto de Apoyo al Fortalecimiento del Sistema Nacional de Salud de la República Dominicana (P180349)</h5>
+</div>
+
+<div>
+<label for="fecha">Fecha de Respuesta</label>
+<br>
+    <div class="date-input-container">
+    <input type="date" id="birth-date" name="birth-date" [(ngModel)]="formsData.fecha">
+</div>
+</div>
+
+
+<h2>I. DATOS PERSONALES</h2>
+
+<div>
+    <h4>Digite sus datos personales:</h4>
+    <label class="label-input" for="nombre">Nombre
+    <input name="nombre" type="text" id="nombre" [(ngModel)]="formsData.nombre">
+    </label>
+
+    <label class="label-input" for="apellido"> Apellido
+    <input name="apellido" type="text" id="apellido" [(ngModel)]="formsData.apellido">
+    </label>
+
+    <label class="label-input" for="domicilio">Domicilio
+    <input name="domicilio" type="text" id="domicilio" [(ngModel)]="formsData.domicilio">
+    </label>
+
+    <label for="distrito">Distrito
+    <input name="distrito" type="text" id="distrito" [(ngModel)]="formsData.distrito">
+    </label>
+</div>
+
+<div>
+    <h2>II. DESCRIPCIÓN GENERAL DEL CASO</h2>
+
+    <textarea name="descripcion" rows="10" cols="50" [(ngModel)]="formsData.descripcioGeneral"></textarea>
+</div>
+
+<div>
+    <h2>III.RESUMEN DE LA RESOLUCIÓN Y LAS MEDIDAS PROPUESTAS</h2>
+
+    <textarea name="resolucion" rows="10" cols="50" [(ngModel)]="formsData.resolucion"></textarea>
+</div>
+
+<div>
+    <h2>IV. ACEPTACIÓN DE LA RESOLUCIÓN POR PARTE DE LA PARTE INTERESADA</h2>
+    <div>
+        
+        <div>
+        <input name="aceptacion" value="Acepto" type="radio" id="si-acepto" [(ngModel)]="formsData.si_acepto">
+        <label for="si-acepto">Marcar si aplica: Acepto la resolución, las
+        medidas propuestas y el
+        cierre del caso</label>
+        </div>
+        
+
+    <input name="aceptacion" value="No Acepto" type="radio" id="no-acepto" [(ngModel)]="formsData.no_acepto">
+    <label for="no-acepto">Marcar si aplica: No acepto y solicito proceso
+        de apelación</label>
+
+    </div>
+
+    <div>
+        <h4 class="title">Datos personales del responsable de atención:</h4>
+        <label class="label-input" for="nombreresponsable">Nombre del responsable de atención:
+        <input name="nombreresponsable" type="text" id="nombreresponsable" [(ngModel)]="formsData.nombreresponsable">
+        </label>
+
+        <label class="label-input" for="cargoresponsable">Cargo:
+        <input name="cargoresponsable" type="text" id="cargorespnsable" [(ngModel)]="formsData.cargorespnsable">
+        </label>
+
+        <label class="label-input" for="firmaresponsable">Firma:
+        <input name="firmaresponsable" type="text" id="firmaresponsable" [(ngModel)]="formsData.firmaresponsable">
+        </label>
+    </div>
+
+    <div>
+        <h4 class="title">Datos del la parte interesada:</h4>
+        <label class="label-input"  class="label-input" for="nombreinteresado">Nombre de la parte interesada que presentó la queja o reclamo:
+        <input name="nombreinteresado" type="text" id="" [(ngModel)]="formsData.nombreinteresado">
+        </label>
+
+        <label class="label-input" for="cargointeresado">Cargo:
+        <input  name="cargointeresado" type="text" id="" [(ngModel)]="formsData.cargointeresado">
+        </label>
+
+        <label class="label-input"  for="firmainteresado">Firma:
+        <input name="firmainteresado" type="text" id="" [(ngModel)]="formsData.firmainteresado">
+        </label>
+    </div>
+
+    <button class="submit-button" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+            </svg>
+        Guardar</button>
+</div>
+
+</form>
+</main>
+
+<Footer>
+    <app-footer></app-footer>
+</Footer>
