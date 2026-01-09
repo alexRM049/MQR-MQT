@@ -64,7 +64,7 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         <label for="fecharecepcion">Fecha y hora de la Recepción: 
         <br/>
                 <div class="date-input-container">
-    <input type="datetime-local" id="event-date" name="event-date" [(ngModel)]="formsData.fecha_hora_incidente" required>
+    <input type="datetime-local" id="event-date" name="event-date" [(ngModel)]="formsData.fecha_hora_recepcion" required>
     </div>
         </label>
 
@@ -101,7 +101,7 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
 
         @if(selectedOption() === 'optionC') {
         
-        <h4 class="title">especifique la recepcion escrita:</h4>
+        <h5 class="title">Especifique la recepcion escrita:</h5>
         <div animate.enter="slide-in" animate.leave="slide-out">
         <div>
         <input name="formsData.selectedOption" value="carta" type="radio" id="carta" [(ngModel)]="formsData.recepcion_Escrita">
@@ -201,9 +201,9 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
     <h2>II. INFORMACION DEL CASO</h2>
 
     <div>
-        <h5 class="title"><b>2.1 Tipo de caso</b></h5>
+        <h4 class="title">2.1 Tipo de caso</h4>
 
-        <p>Que va usted a realizar:</p>
+        <p>¿Que tipo de reporte realizará?:</p>
 
         <div>
         <input name="realizar" value="Explotacion Sexual" type="radio" id="explotacion" [(ngModel)]="formsData.tipo_Reporte">
@@ -220,22 +220,22 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
     </div>
 
     <div>
-        <h5 class="title"><b>2.2 Breve detalle del incidente</b></h5>
+        <h4 class="title">2.2 Breve detalle del incidente</h4>
 
         <textarea name="detalle" rows="10" cols="50" [(ngModel)]="formsData.detalle"></textarea>
     </div>
 
     <div>
-        <h5 class="title"><label for="documento"> <b>2.3 Documentación entregada por el titular</b>
+        <h4 class="title"><label for="documento"> 2.3 Documentación entregada por el titular
         <br/>
         <div class="input-group">
             <input type="file" class="form-control" id="inputGroupFile01">
             </div>
-        </label></h5>
+        </label></h4>
     </div>
 
     <div>
-        <h5 class="title"><b>2.4 Lugar y fecha del caso</b></h5>
+        <h4 class="title">2.4 Lugar y fecha del caso</h4>
 
         <label for="lugar-caso">Lugar del caso:</label>
         <input name="lugar-caso" type="text" id="lugar-caso" [(ngModel)]="formsData.lugar_caso">
@@ -243,12 +243,12 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         <label for="fecha-caso"> Fecha del caso:</label>
         <br/>
         <div class="date-input-container">
-                <input type="date" id="birth-date" name="birth-date">
+                <input type="date" id="birth-date" name="birth-date" [(ngModel)] = "formsData.fecha_caso">
                 </div>
     </div>
 
     <div>
-        <h5 class="title"><b>2.5 Persona Sobreviviente</b></h5>
+        <h4 class="title">2.5 Persona Sobreviviente</h4>
         
         <label for="genero">2.5.1 Sexo de la persona sobreviviente:</label>
         <select id="genero" name="genero" [(ngModel)]="formsData.genero_sobreviviente">
@@ -274,7 +274,7 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         </select>
     </div>
 
-    <h5 class="title"><b>2.6 Presunto agresor</b></h5>
+    <h4 class="title">2.6 Presunto agresor</h4>
 
     <div>
         <label for="genero">2.6.1 Sexo del agresor:</label>
@@ -285,7 +285,7 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         </select>
 
         <label for="edad">2.6.2 Edad o grupo etario del agresor:</label>
-        <select id="edad" name="edad" [(ngModel)]="formsData.edad_genero">
+        <select id="edad" name="edad" [(ngModel)]="formsData.edad_agresor">
             <option value="menor">Menor de edad (<10 años)</option>
             <option value="mayor">Persona adulta (≥18 años)</option>
             <option value="no-especifica">No especificado</option>
@@ -303,7 +303,7 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
 
     <h2 class="title">III. OBSERVACIONES ADICIONALES</h2>
     <div>
-    <label for="adicional">alguna observación que desea agregar:</label>
+    <label for="adicional">Alguna observación que desea agregar:</label>
     <textarea name="adicional" id="adicional" rows="10" cols="50" [(ngModel)]="formsData.adicional"></textarea>
     </div>
 

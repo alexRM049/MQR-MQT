@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 import { FormsModule } from '@angular/forms';
@@ -25,20 +25,40 @@ export class Status {
 
   statusService = inject(StatusServices)
 
-  findCase() {
-    
+  errorMessage = signal<string> ('');
 
-  
+  isShown = signal(false);
+
+   toggle() {
+    this.isShown.update((isShown) => !isShown);
+  }
+
+  findCase() {
+
+     // Reset states
+    this.errorMessage.set('');
+    this.isShown.set(false);
+    this.isCodeEntered = false;
+
       const caseC = this.statusService.caseExample.find((item) => item.code === this.codigoStatus)
     this.casecode = caseC;
 
+     if (!this.codigoStatus.trim()) {
+      this.errorMessage.set('Por favor, ingrese un código del caso que desea buscar.');
+      return;
+    }
+
     if (caseC === undefined){
-      console.log("no se pudo encontrar el caso. por favor introduzca el numero de caso nuevamente")
-      alert("No se pudo encontrar el caso. Por favor introduzca el numero de caso nuevamente")
+        this.isCodeEntered = false
+       // Instead of alert(), we update the reactive error state
+      this.errorMessage.set('No se pudo encontrar el caso. Por favor, verifique el codigo e intente nuevamente.');
+      console.log('caseC is undefined')
+      return;
     }
 
     else {
       this.isCodeEntered = true;
+      this.isShown.set(true);
 
       this.caseData = {
       code: "",

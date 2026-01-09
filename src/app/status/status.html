@@ -3,22 +3,23 @@
 
     <h1>Estado de Casos</h1>
 
-<p>Aqui podras ver el progreso de tu Caso</p>
+<p>Aqui podras ver el progreso de tu caso</p>
 
 <section>
         <nav class="navbar bg-body-tertiary">
   <div class="container-fluid" >
     <form class="d-flex" role="search" (ngSubmit)="findCase()">
       <input name="codigoStatus" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  [(ngModel)]="codigoStatus"/>
-      <button  class="btn btn-outline-success" type="submit">Search</button>
+      <button  class="btn btn-outline-success" (click)="toggle()" type="submit">Search</button>
     </form>
   </div>
 </nav>
 </section>
 
 <div>
-     @if(isCodeEntered == true) {
-         <div animate.enter="slide-in" animate.leave="slide-out">
+     @if(isCodeEntered) {
+       @if (isShown()) {
+         <div class="enter-container" animate.enter="enter-animation">
        <section>
     <table class="vertical-table">
         <tr>
@@ -52,8 +53,22 @@
 </section>
         </div>    
     }
+}
+
 </div>
 
+<div class="result-area">
+    <!-- ERROR MESSAGE: Ensuring high visibility and accessibility -->
+    @if (errorMessage()) {
+      <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ errorMessage() }}</span>
+      </div>
+    }
+</div>
 </main>
 
 <app-footer></app-footer>

@@ -44,32 +44,32 @@
 
 <div>
     <h4>Digite sus datos personales:</h4>
-    <label class="label-input" for="nombre">Nombre
+    <label class="label-input" for="nombre">Nombre:
     <input name="nombre" type="text" id="nombre" [(ngModel)]="formsData.nombre">
     </label>
 
-    <label class="label-input" for="apellido"> Apellido
+    <label class="label-input" for="apellido"> Apellido:
     <input name="apellido" type="text" id="apellido" [(ngModel)]="formsData.apellido">
     </label>
 
-    <label class="label-input" for="domicilio">Domicilio
+    <label class="label-input" for="domicilio">Domicilio:
     <input name="domicilio" type="text" id="domicilio" [(ngModel)]="formsData.domicilio">
     </label>
 
-    <label for="distrito">Distrito
+    <label for="distrito">Distrito:
     <input name="distrito" type="text" id="distrito" [(ngModel)]="formsData.distrito">
     </label>
 </div>
 
 <div>
     <h2>II. DESCRIPCIÓN GENERAL DEL CASO</h2>
-
+    <label>Describa de forma general el caso:</label>
     <textarea name="descripcion" rows="10" cols="50" [(ngModel)]="formsData.descripcioGeneral"></textarea>
 </div>
 
 <div>
     <h2>III.RESUMEN DE LA RESOLUCIÓN Y LAS MEDIDAS PROPUESTAS</h2>
-
+    <label>Resuma la resolucion del caso y las medidas propuestas a tomar:</label>
     <textarea name="resolucion" rows="10" cols="50" [(ngModel)]="formsData.resolucion"></textarea>
 </div>
 

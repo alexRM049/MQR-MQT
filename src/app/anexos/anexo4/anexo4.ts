@@ -6,6 +6,7 @@ import { Footer } from '../../footer/footer';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core'; // Use this for standard JavaScript Date object
+import { anexo4 } from './anexo4.model';
 
 @Component({
   selector: 'app-anexo4',
@@ -19,7 +20,7 @@ import { MatNativeDateModule } from '@angular/material/core'; // Use this for st
   styleUrl: '../anexos.css',
 })
 export class Anexo4Component {
- formsData: any ={
+ formsData: anexo4 ={
   numeroCaso:'',
   Unidad_Ejecutora: '',
   fecha: '',
@@ -42,4 +43,9 @@ export class Anexo4Component {
   onSubmit () {
     console.log(this.formsData)
   }
+
+  errormessage() {
+     
+  }
+
 }

@@ -1,132 +1,110 @@
-/* Custom palette based on the image */
 :root {
-  --msp-navy: #1d2d4c;    /* The deep blue in the header */
-  --msp-blue-light: #2c3e50;
-  --msp-text-gray: #555555;
-  --msp-border: #dee2e6;
-  --msp-success: #28a745;
-}
+      --msp-navy: #1d2d4c;
+      --msp-border: #dee2e6;
+      --msp-text-gray: #555555;
+    }
 
-main {
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  min-height: 500px;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-  color: #333;
-}
+    main {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      min-height: 500px;
+      
+    }
 
-h1 {
-  color: var(--msp-navy);
-  font-size: 2.2rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 10px;
-}
+    h1 { color: #1d2d4c; text-align: center; }
+    p { text-align: center; color: #666; }
 
-p {
-  text-align: center;
-  color: var(--msp-text-gray);
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-}
+    .navbar {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
 
-/* Search Section Styling */
-.navbar {
-  background-color: #f8f9fa !important;
-  border: 1px solid var(--msp-border);
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 30px;
-}
+    .form-control { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    .btn-outline-success { padding: 8px 20px; border: 1px solid #1d2d4c; color: #1d2d4c; border-radius: 4px; cursor: pointer; }
+    .btn-outline-success:hover { background: #1d2d4c; color: white; }
 
-.form-control {
-  border: 1px solid var(--msp-border);
-  padding: 10px 15px;
-  border-radius: 4px;
-}
+    /* Custom Error Container because invalid-feedback is hidden by default in Bootstrap */
+    .error-container {
+      margin-top: 15px;
+      padding: 12px;
+      background-color: #fff5f5;
+      border: 1px solid #feb2b2;
+      border-radius: 6px;
+      color: #c53030;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeIn 0.3s ease;
+    }
 
-.btn-outline-success {
-  color: var(--msp-navy);
-  border-color: var(--msp-navy);
-  transition: all 0.3s ease;
-}
+    .vertical-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border: 1px solid #dee2e6;
+    }
 
-.btn-outline-success:hover {
-  background-color: var(--msp-navy);
-  color: white;
-  border-color: var(--msp-navy);
-}
+    .vertical-table th { background: #f8f9fa; padding: 12px; text-align: left; width: 30%; border-bottom: 1px solid #eee; }
+    .vertical-table td { padding: 12px; border-bottom: 1px solid #eee; }
 
-/* Table Styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  border-radius: 8px;
-  overflow: hidden;
-}
+    .status-badge { background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; }
 
-th {
-  background-color: var(--msp-navy);
-  color: black;
-  font-weight: 500;
-  text-align: left;
-  padding: 15px;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-}
+    .enter-animation-container {
+      animation: slide-fade 0.6s ease-out;
+    }
 
-td {
-  padding: 15px;
-  border-bottom: 1px solid var(--msp-border);
-  color: var(--msp-text-gray);
-}
+    @keyframes slide-fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-tr:last-child td {
-  border-bottom: none;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-tr:hover {
-  background-color: #f1f4f9;
-}
+    :host { display: block; background-color: white; min-height: 100vh; }
+    .animate-enter { animation: slideIn 0.3s ease-out forwards; }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Vertical Table Transformation */
-.vertical-table {
+:host {
   display: block;
-  width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
-  border: 1px solid var(--msp-border);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  height: 200px;
 }
 
-.vertical-table tr {
-  display: flex;
-  flex-direction: column; /* This stacks them */
-  border-bottom: 1px solid var(--msp-border);
+.enter-animation {
+  animation: slide-fade 1s;
+}
+@keyframes slide-fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.vertical-table tr:last-child {
-  border-bottom: none;
-}
-
-.vertical-table th {
-  background-color: #f8f9fa;
-  color: var(--msp-navy);
-  width: 100%;
-  padding: 10px 20px;
-  font-size: 0.75rem;
-  border-bottom: 1px solid #eee;
-}
-
-.vertical-table td {
-  width: 100%;
-  padding: 15px 20px;
-  font-weight: 500;
-  background-color: white;
-}
-
+ /* Updated error-box to ensure it's clearly red */
+    .error-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background-color: #fee2e2; /* Light red background */
+      color: #dc2626;             /* Strong red text */
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #f87171;   /* Red border */
+      margin-bottom: 24px;
+      font-weight: 500;
+      animation: fadeIn 0.3s ease-out;
+    }

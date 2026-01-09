@@ -8,14 +8,28 @@
 <section>
     <app-redirect-hp></app-redirect-hp>
 
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" class="was-terminated">
 
 <div>
         <h4>Unidad Ejecutora</h4>
     
     <label for="numeroCaso">Numero de caso:
     <input required type="text" name="numeroCaso" [(ngModel)]="formData.numeroCaso">
+    <div class="invalid-feedback">
+      Favor de introducir el ID del caso
+    </div>
     </label>
+    <div class="error-message">
+    @if(eMNumeroCaso()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMNumeroCaso() }}</span>
+      </div>
+    }
+    </div>
 
     <div>
         <label class="form-label" for = "Unidad-Ejecutora">Indicar la Unidad Ejecutora:
@@ -25,7 +39,18 @@
         </select>
         </label>
     </div>    
-        
+    
+    
+    @if(eMUnidad_Ejecutora()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{eMUnidad_Ejecutora() }}</span>
+      </div>
+    }
+    
 </div>
 
     
@@ -36,11 +61,42 @@
             <P>(P180349)</P> 
     </div>
     <div>
-        <label for="fecha-hora">Fecha y hora de la Recepción:</label>
+        <div>
+        <label>¿La recepción fue creado hoy? si la respuesta es si, selecciona si.</label>
+          <div>
+          <label><input 
+            type="radio" 
+            name="isToday" 
+            id="isToday" 
+            [(ngModel)]="formData.isToday"
+            (click)="clickEsHoy()"
+            >
+            Si
+            </label>
+            </div>
+            <div>
+            <label><input         
+            name="isToday"
+            class="radio-in" 
+            type ="radio" 
+            id="isToday"
+            value="no"
+            [(ngModel)]="formData.isToday"
+            (click)="clickNoEsHoy()"
+            (change) = "eMfecha_hora_recepcion.set('optionNo')"
+            [checked] = "eMfecha_hora_recepcion() === 'optionNo'">
+            No   
+            </label>
+            </div>
+         @if(eMfecha_hora_recepcion() === 'optionNo') {
+        <div animate.enter="slide-in" animate.leave="slide-out">
+        <label for="fecha-hora">Favor especficar la fecha y hora de la recepción:</label>
         <br>
-    
     <div class="date-input-container">
     <input type="datetime-local" id="event-date" name="event-date" [(ngModel)]="formData.fecha_hora_recepcion">
+    </div>
+    </div>
+    }
     </div>
         
     </div>
@@ -115,7 +171,17 @@
         </div>
     </div>
         }
-      
+    <div class="error-message">
+     @if(eMmedios_recepcion()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{eMmedios_recepcion()}}</span>
+      </div>
+    }
+      </div>
 
     </div>
 
@@ -169,9 +235,19 @@
             <textarea name="detalle" rows="4" cols="50" [(ngModel)]="formData.detalle"></textarea>
             </div>
         </div>
-
+        <div class="error-message">
+         @if(eMtipo_Caso()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{eMtipo_Caso()}}</span>
+      </div>
+    }
+    </div>
         <div>
-            <h4 class="title"><label for="docu">2.3. Documentacion entregada por la parte inrersada (informe, fotografias, otros)</label></h4>
+            <h4 class="title"><label for="docu">2.3. Documentacion entregada por la parte interersada (informe, fotografias, otros)</label></h4>
             
             <div class="input-group">
             <input type="file" class="form-control" id="inputGroupFile01">
@@ -203,11 +279,34 @@
     <div>
           <label for="NombreResponsable"> Nombre del responsable de la atencion:</label>
         <input name="NombreResponsable" type="text" id="NombreResponsable" [(ngModel)]="formData.NombreResponsable">
+        <div class="error-message">
+
+        @if(eMNombreResponsable()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{eMNombreResponsable()}}</span>
+      </div>
+    }
+    </div>
 
         <label for="cargo">Cargo:</label>
         <input name="cargo" type="text" id="cargo" [(ngModel)]="formData.cargo">
     </div>
-      
+
+    <div class="error-message">
+     @if(eMcargo()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{eMcargo()}}</span>
+      </div>
+    } 
+    </div>
 
         <button class="submit-button" type="submit">
            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">

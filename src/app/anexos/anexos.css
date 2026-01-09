@@ -356,3 +356,21 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 .slide-out {
   animation: slide-out 0.2s ease-in forwards;
 }
+
+/* Updated error-box to ensure it's clearly red */
+    .error-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background-color: #fee2e2; /* Light red background */
+      color: #dc2626;             /* Strong red text */
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #f87171;   /* Red border */
+      margin-bottom: 24px;
+      font-weight: 500;
+      animation: fadeIn 0.3s ease-out;
+    }
+    .error-message{
+      margin-top: 10px;
+    }
