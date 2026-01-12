@@ -25,7 +25,7 @@ export interface anexo5 {
   edad_sobreviviente: string,
   relacion_sobreviviente: string,
   genero_agresor: string,
-  edad_genero: string,
+  edad_agresor: string,
   relacion_agresor: string,
   adicional: string,
   nombreresponsable: string,

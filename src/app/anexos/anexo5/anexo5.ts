@@ -49,7 +49,7 @@ export class Anexo5Component {
   eMedad_sobreviviente = signal<string> ('');
   eMrelacion_sobreviviente = signal<string> ('');
   eMgenero_agresor = signal<string> ('');
-  eMedad_genero = signal<string> ('');
+  eMedad_agresor = signal<string> ('');
   eMrelacion_agresor = signal<string> ('');
   eMnombreresponsable = signal<string> ('');
   eMcargoresonsable = signal<string> ('');
@@ -81,7 +81,7 @@ export class Anexo5Component {
   edad_sobreviviente: '',
   relacion_sobreviviente: '',
   genero_agresor: '',
-  edad_genero: '',
+  edad_agresor: '',
   relacion_agresor: '',
   adicional: '',
   nombreresponsable: '',
@@ -108,11 +108,110 @@ errorMessage() {
   }
   if(!this.formsData.conprosub){
     this.eMconprosub.set('Favor indicar el Nombre del contratista, proveedor o subcontratista')
+  }else{
+    this.eMconprosub.set('');
   }
-
+  if(!this.formsData.encargado){
+    this.eMencargado.set('Favor de indicar el Nombre y firma del personal encargado del registro de incidentes de EyAS/ASx en la localidad')
+  }else {
+    this.eMencargado.set('');
+  }
+  if(!this.formsData.fecha_hora_incidente){
+    this.eMfecha_hora_incidente.set("Favor de indicar la fecha y hora de incidente")
+  }else{
+    this.eMfecha_hora_incidente.set('');
+  }
+  if(!this.formsData.lugar){
+    this.eMlugar.set('Favor de inidicar el lugar de registro')
+  }else{
+    this.eMlugar.set('');
+  }
+  if(!this.formsData.fecha_hora_recepcion){
+    this.eMfecha_hora_recepcion.set("Favor de indicar la fecha y hora de la recepcion")
+  }else{
+    this.eMfecha_hora_recepcion.set('');
+  }
+  if(!this.formsData.confidencial_Concentimiento){
+    this.eMconfidencial_Concentimiento.set('Favor inidcar si es confidencial, anonimo o consentimiento a dar su identidad')
+  } else{
+    this.eMconfidencial_Concentimiento.set('')
+  }
+  if(!this.formsData.quien_Reporta) {
+    this.eMquien_Reporta.set("Favor de indicar quien es el que reporta el caso")
+  }else{
+    this.eMquien_Reporta.set('')
+  }
+  if(!this.formsData.org){
+    this.eMorg.set("Favor de indicar la organización")
+  }else{
+    this.eMorg.set('');
+  }
+  if(!this.formsData.contratista) {
+    this.eMcontratista.set('Favor de indicar el contratista')
+  }
+  if(!this.formsData.subcontratista){
+    this.eMsubcontratista.set('Favor de indicar el subcontratista')
+  }else{
+    this.eMsubcontratista.set('');
+  }
+  if(!this.formsData.proveedor){
+    this.eMproveedor.set("favor de indicar el proveedor de servicios")
+  }else{
+    this.eMproveedor.set(''); 
+  }
+  if(!this.formsData.tipo_Reporte){
+    this.eMtipo_Reporte.set("Favor de indicar el tipo de caso")
+  }else{
+    this.eMtipo_Reporte.set('');
+  }
+  if(!this.formsData.detalle){
+    this.eMdetalle.set("Explique los detalles del inicidente")
+  }else{
+    this.eMdetalle.set('');
+  }
+  if(!this.formsData.lugar_caso){
+    this.eMlugar_caso.set("Favor de inidcar el lugar donde ocurrió el caso")
+  }else{
+    this.eMlugar_caso.set('')
+  }
+  if(!this.formsData.fecha_caso){
+    this.eMfecha_caso.set('Favor de indicar la fecha donde ocurrió el caso')
+  }else{
+    this.eMfecha_caso.set('');
+  }
+  if(!this.formsData.genero_sobreviviente){
+    this.eMgenero_sobreviviente.set("Favor de indicar el genero del sobreviviente")
+  }else{
+    this.eMedad_sobreviviente.set('')
+  }
+  if(!this.formsData.relacion_sobreviviente){
+    this.eMrelacion_sobreviviente.set("Favor indicar la relacion del sobreviviente")
+  }else{
+    this.eMrelacion_sobreviviente.set('')
+  }
+  if(!this.formsData.genero_agresor){
+    this.eMgenero_agresor.set('Favor indicar el genero del agresor')
+  }else{
+    this.eMgenero_agresor.set('')
+  }
+  if(!this.formsData.edad_agresor){
+    this.eMedad_agresor.set('Favor de indicar el edad del agresor')
+  }
+  if(!this.formsData.relacion_agresor){
+    this.eMrelacion_agresor.set('Favor de indicar la relación del agresor')
+  }
+  if(!this.formsData.nombreresponsable) {
+    this.eMnombreresponsable.set('Favor de indicar el nombre del responsable')
+  }
+  if(!this.formsData.cargoresonsable) {
+    this.eMcargoresonsable.set('Favor de indicar el cargo del responsable')
+  }
 }
 
   onSubmit () {
+
+    this.errorMessage();
+
     console.log(this.formsData)
   }
 }

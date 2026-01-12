@@ -18,6 +18,15 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
     <input required type="text" name="numeroCaso" [(ngModel)]="formsData.numeroCaso">
     </label>
     
+     @if(eMnumeroCaso()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMnumeroCaso() }}</span>
+      </div>
+    }
     
     <div>
        <label for="Unidad-Ejecutora">Indicar Nombre de la Unidad Ejecutora:
@@ -27,7 +36,15 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         </select>
        </label> 
     </div>
-    
+     @if(eMUnidad_Ejecutora()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMUnidad_Ejecutora() }}</span>
+      </div>
+    }
     </div>
 
     <div>
@@ -40,13 +57,43 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         <input name="subproyecto" type="text" id="subproyecto" [(ngModel)]="formsData.subproyecto">
         </label>
 
+         @if(eMsubproyecto()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMsubproyecto() }}</span>
+      </div>
+    }
+
         <label for="conprosub">Nombre del contratista, proveedor o subcontratista:
         <input name="conprosub" type="text" id="conprosub" [(ngModel)]="formsData.conprosub">
         </label>
 
+         @if(eMconprosub()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMconprosub() }}</span>
+      </div>
+    }
+
         <label for="encargado">Nombre y firma del personal encargado del registro de incidentes de EyAS/ASx en la localidad:
         <input name="encargado" type="text" id="encargado" [(ngModel)]="formsData.encargado">
         </label>
+
+         @if(eMencargado()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMencargado() }}</span>
+      </div>
+    }
 
         <div>
         <label for="fecha">Fecha y hora del incidente: 
@@ -56,17 +103,50 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
     </div>
         </label>
 
+         @if(eMfecha_hora_incidente()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMfecha_hora_incidente() }}</span>
+      </div>
+    }
+
         </div>
+        <div>
         <label for="lugar">Lugar de Registro:
         <input name="lugar" type="text" id="lugar" [(ngModel)]="formsData.lugar">
         </label>
-        <br>
-        <label for="fecharecepcion">Fecha y hora de la Recepción: 
+        
+         @if(eMlugar()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMlugar() }}</span>
+      </div>
+    }
+        </div>
+        <div>
+              <label for="fecharecepcion">Fecha y hora de la Recepción: 
         <br/>
                 <div class="date-input-container">
     <input type="datetime-local" id="event-date" name="event-date" [(ngModel)]="formsData.fecha_hora_recepcion" required>
+         @if(eMfecha_hora_recepcion()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMfecha_hora_recepcion() }}</span>
+      </div>
+    }
     </div>
-        </label>
+        </label> 
+        </div>
+     
 
     </div>
 
@@ -87,7 +167,8 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         <div>
         <input (click)="selectedOption.set(null)" value="formsData.otros" name="recepcion" class="radio-in" type="radio" id="otros" [(ngModel)]="formsData.medios_Recepcion">
         <label for="otros">Otros medios</label>
-        </div>    
+        </div>
+        <div>
         <input
         name="recepcion"
         class="radio-in" 
@@ -97,7 +178,22 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         [(ngModel)]="formsData.medios_Recepcion"
         (change) = "selectedOption.set('optionC')"
         [checked] = "selectedOption() === 'optionC'">
-       <label for="escrito">Escrito</label>
+       <label for="escrito">Escrito</label> 
+
+       @if(eMmedios_Recepcion()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMmedios_Recepcion() }}</span>
+      </div>
+    }
+    
+        </div>    
+        
+
+
 
         @if(selectedOption() === 'optionC') {
         
@@ -141,6 +237,16 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         <input name="Confidencialidad" value="consentimiento dar su identidad" type="radio" id="consentimiento" [(ngModel)]="formsData.confidencial_Concentimiento">
         <label for="">consentimiento dar su identidad</label>
         </div>
+
+        @if(eMconfidencial_Concentimiento()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMconfidencial_Concentimiento() }}</span>
+      </div>
+    }
     </div>
 
     <div>
@@ -176,26 +282,91 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
             </div>
         }
 
+        @if(eMquien_Reporta()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMquien_Reporta() }}</span>
+      </div>
+    }
+
     </div>
 
     <h2>I. DATOS DEL AGENTE GENERADOR</h2>
 
     <div>
+        <div>
         <label class="label-input"  for="org" >UEP, MISPAS, MIVHED, SNS:
         <input name="org" type="text" id="org" [(ngModel)]="formsData.org">
         </label>
 
+        @if(eMorg()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMorg() }}</span>
+      </div>
+    }
+
+        </div>
+
+        <div>
         <label class="label-input"  for="contratista">Contratistas:
         <input name="contratista" type="text" id="contratista" [(ngModel)]="formsData.contratista">
         </label>
 
+        @if(eMcontratista()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMcontratista() }}</span>
+      </div>
+    }
+        </div>
+        
+        <div>
         <label class="label-input"  for="subcontratista">subcontratista:
         <input name="subcontratista" type="text" id="subcontratista" [(ngModel)]="formsData.subcontratista">
         </label>
 
+        @if(eMsubcontratista()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMsubcontratista() }}</span>
+      </div>
+    }
+
+        </div>
+        
+        <div>
         <label for="proveedor"> Proveedores de servicios:
         <input name="proveedor" type="text" id="proveedor" [(ngModel)]="formsData.proveedor">
         </label>
+
+        @if(eMproveedor()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMproveedor() }}</span>
+      </div>
+    }
+
+        </div>
+        
+
+        
+
     </div>
 
     <h2>II. INFORMACION DEL CASO</h2>
@@ -217,6 +388,16 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
         <input name="realizar" value="Abuso Sexual" type="radio" id="abuso" [(ngModel)]="formsData.tipo_Reporte">
         <label for="abuso">Abuso Sexual</label>
 
+        @if(eMtipo_Reporte()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMtipo_Reporte() }}</span>
+      </div>
+    }
+
     </div>
 
     <div>
@@ -237,26 +418,63 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
     <div>
         <h4 class="title">2.4 Lugar y fecha del caso</h4>
 
+        <div>
         <label for="lugar-caso">Lugar del caso:</label>
         <input name="lugar-caso" type="text" id="lugar-caso" [(ngModel)]="formsData.lugar_caso">
 
+        @if(eMlugar_caso()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMlugar_caso() }}</span>
+      </div>
+    }
+
+        </div>
+        
         <label for="fecha-caso"> Fecha del caso:</label>
         <br/>
         <div class="date-input-container">
-                <input type="date" id="birth-date" name="birth-date" [(ngModel)] = "formsData.fecha_caso">
-                </div>
+        <input type="date" id="birth-date" name="birth-date" [(ngModel)] = "formsData.fecha_caso">
+        </div>
+
+        @if(eMfecha_caso()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMfecha_caso() }}</span>
+      </div>
+    }
+
     </div>
 
     <div>
         <h4 class="title">2.5 Persona Sobreviviente</h4>
-        
+        <div>
         <label for="genero">2.5.1 Sexo de la persona sobreviviente:</label>
         <select id="genero" name="genero" [(ngModel)]="formsData.genero_sobreviviente">
             <option value="femenino">Femenino</option>
             <option value="masculino">masculino</option>
             <option value="otro">Otro / Prefiere no especificar</option>
         </select>
+
+        @if(eMgenero_sobreviviente()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMgenero_sobreviviente() }}</span>
+      </div>
+        }
+
+        </div>
         
+        <div>
         <label for="edad">2.5.2 Edad o grupo etario de la persona sobreviviente:</label>
         <select id="edad" name="edad" [(ngModel)]="formsData.edad_sobreviviente">
             <option value="menor">Menor de edad (<10 años)</option>
@@ -264,6 +482,19 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
             <option value="no-especifica">No especificado</option>
         </select>
 
+        @if(eMedad_sobreviviente()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMedad_sobreviviente() }}</span>
+      </div>
+        }
+
+        </div>
+        
+        <div>
         <label for="relacion">2.5.3 Relación con el proyecto:</label>
         <select id="relacion" name="relacion" [(ngModel)]="formsData.relacion_sobreviviente">
             <option value="default">Elija una de las opciones</option>
@@ -272,11 +503,24 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
             <option value="PIU">Personal de la PIU / institución ejecutora</option>
             <option value="otro">Otro (especifique)</option>
         </select>
+        </div>
+            
+        @if(eMrelacion_sobreviviente()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMrelacion_sobreviviente() }}</span>
+      </div>
+        }
+
     </div>
 
     <h4 class="title">2.6 Presunto agresor</h4>
 
     <div>
+        <div>
         <label for="genero">2.6.1 Sexo del agresor:</label>
         <select id="genero" name="genero" [(ngModel)]="formsData.genero_agresor">
             <option value="femenino">Femenino</option>
@@ -284,6 +528,19 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
             <option value="otro">Otro / Prefiere no especificar</option>
         </select>
 
+        @if(eMgenero_sobreviviente()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMgenero_sobreviviente() }}</span>
+      </div>
+    }
+
+        </div>
+
+        <div>
         <label for="edad">2.6.2 Edad o grupo etario del agresor:</label>
         <select id="edad" name="edad" [(ngModel)]="formsData.edad_agresor">
             <option value="menor">Menor de edad (<10 años)</option>
@@ -291,7 +548,20 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
             <option value="no-especifica">No especificado</option>
         </select>
 
-        <label for="relacion">2.6.3 Relación con el proyecto:</label>
+        @if(eMedad_agresor()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMedad_agresor() }}</span>
+      </div>
+        }
+
+        </div>
+        
+        <div>
+            <label for="relacion">2.6.3 Relación con el proyecto:</label>
         <select id="relacion" name="relacion" [(ngModel)]="formsData.relacion_agresor">
             <option value="default">Elija una de las opciones</option>
             <option value="contratista">Trabajadora del proyecto / contratista </option>
@@ -299,6 +569,19 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
             <option value="PIU">Personal de la PIU / institución ejecutora</option>
             <option value="otro">Otro (especifique)</option>
         </select>
+
+        @if(eMrelacion_agresor()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMrelacion_agresor() }}</span>
+      </div>
+        }
+
+        </div>
+        
     </div>
 
     <h2 class="title">III. OBSERVACIONES ADICIONALES</h2>
@@ -306,13 +589,38 @@ abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
     <label for="adicional">Alguna observación que desea agregar:</label>
     <textarea name="adicional" id="adicional" rows="10" cols="50" [(ngModel)]="formsData.adicional"></textarea>
     </div>
+    <div>
+        <label for="nombreresponsable"> Nombre del resonsable de la atención:</label>
+        <input name="nombreresponsable" type="text" id="nombreresponsable" [(ngModel)]="formsData.nombreresponsable">
 
-    <label for="nombreresponsable"> Nombre del resonsable de la atención:</label>
-    <input name="nombreresponsable" type="text" id="nombreresponsable" [(ngModel)]="formsData.nombreresponsable">
+        @if(eMnombreresponsable()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMnombreresponsable() }}</span>
+      </div>
+        }
 
-    <label for="cargoresponsable">Cargo:</label>
-    <input name="cargoresonsable" type="text" id="cargoresonsable" [(ngModel)]="formsData.cargoresonsable">
+    </div>
+    
+    <div>
+        <label for="cargoresponsable">Cargo:</label>
+        <input name="cargoresonsable" type="text" id="cargoresonsable" [(ngModel)]="formsData.cargoresonsable">
 
+        @if(eMnombreresponsable()) {
+        <div class="error-box" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+        </svg>
+        <span>{{ eMnombreresponsable() }}</span>
+      </div>
+        }
+
+    </div>
+    
     <button class="submit-button" type="submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
             <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
