@@ -33,6 +33,7 @@ svg.one{
 .card-title {
   margin-bottom: var(--bs-card-title-spacer-y);
   color: var(--bs-card-title-color);
+  text-align: center;
 }
 
 .card-subtitle {
@@ -108,5 +109,6 @@ svg.one{
 
     .carta-anexos {
       width: 100%;
-      max-width: 800px; /* Limits size so they don't stretch too much */
+      max-width: 70%; /* Limits size so they don't stretch too much */
+      padding: auto;
     }

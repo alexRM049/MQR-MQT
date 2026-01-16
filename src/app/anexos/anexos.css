@@ -370,6 +370,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
       margin-bottom: 24px;
       font-weight: 500;
       animation: fadeIn 0.3s ease-out;
+      margin-top: 10px;
     }
     .error-message{
       margin-top: 10px;
