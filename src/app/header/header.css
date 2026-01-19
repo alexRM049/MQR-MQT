@@ -36,4 +36,18 @@ img{
   .navbar-collapse.show {
     max-height: 500px; /* Set this to a value larger than your menu */
   }
+
+}
+  /* 1. Ensure the sticky element is at the very top of the stacking order */
+.sticky-top {
+  top: 0;
+  z-index: 1020; 
+  background-color: #f8f9fa !important; /* Matches bg-body-tertiary */
+}
+
+/* 2. Optional: If you want the title to stay too, apply it to the header instead */
+header {
+  position: -webkit-sticky; /* Support for Safari */
+  position: sticky;
+  top: -150px; /* This "hides" the logo/title but stops the nav at the top */
 }
