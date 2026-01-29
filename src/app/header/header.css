@@ -1,53 +1,59 @@
-header{
-    background-color: #2A385E;
+/* 1. LOGO AND TITLE SECTION */
+.main-portal-header {
+    background-color: #1d2d50;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.main-portal-header img {
+    display: block;
+    margin: 10px auto;
+    max-height: 80px; /* Keeps logo small */
+    width: auto;
+}
+
+h1.title {
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+
+/* 2. THE STICKY NAVBAR */
+.navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 0 10px;
     border-radius: 8px;
 }
 
-h1.title{
-     display: flex;
-    justify-content: center;
-    color: white;
-}
-
-img{
-    display: block;
-    margin: auto;
-}
-
+/* 3. THE MOBILE ANIMATION LOGIC */
+/* Ensure the menu is hidden by default on mobile */
 .collapse:not(.show) {
-  display: none;
+    display: none;
 }
 
-.collapsing {
-  height: 0;
-  overflow: hidden;
-  transition: height 0.35s ease;
-}
-
-/* Custom Angular Fix */
 @media (max-width: 991.98px) {
-  .navbar-collapse {
-    transition: max-height 0.4s ease-in-out;
-    max-height: 0;
-    display: block !important; /* Overwrite Bootstrap's display:none */
-    overflow: hidden;
-  }
+    .navbar-collapse {
+        /* This is what creates the sliding animation */
+        transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
+        max-height: 0;
+        display: block !important; 
+        overflow: hidden;
+        opacity: 0;
+    }
 
-  .navbar-collapse.show {
-    max-height: 500px; /* Set this to a value larger than your menu */
-  }
+    .navbar-collapse.show {
+        max-height: 500px; /* Adjust based on menu size */
+        opacity: 1;
+    }
 
-}
-  /* 1. Ensure the sticky element is at the very top of the stacking order */
-.sticky-top {
-  top: 0;
-  z-index: 1020; 
-  background-color: #f8f9fa !important; /* Matches bg-body-tertiary */
-}
-
-/* 2. Optional: If you want the title to stay too, apply it to the header instead */
-header {
-  position: -webkit-sticky; /* Support for Safari */
-  position: sticky;
-  top: -150px; /* This "hides" the logo/title but stops the nav at the top */
+    /* Adjust logo for even smaller screens */
+    .main-portal-header img {
+        max-height: 60px;
+    }
 }
