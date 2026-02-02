@@ -1,0 +1,64 @@
+.form-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      border: 1px solid #eef2f7;
+      margin-bottom: 1.2rem;
+      width: 100%;
+    }
+    
+    .form-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      border-color: #007bff;
+    }
+
+    .form-info {
+      flex: 1;
+      padding-right: 2rem;
+    }
+
+    .form-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0;
+      color: #1a2b4b;
+      line-height: 1.4;
+    }
+
+    .btn-action {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-action:hover {
+      background: #0056b3;
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .form-card { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 1.5rem;
+      }
+      .form-info {
+        padding-right: 0;
+        margin-bottom: 1rem;
+      }
+      .btn-action {
+        width: 100%;
+      }
+    }

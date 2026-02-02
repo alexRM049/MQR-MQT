@@ -1,7 +1,7 @@
 export interface anexo1{
   numeroCaso: string,
   Unidad_Ejecutora: string,
-  isToday: '',
+  isToday: string,
   fecha_hora_recepcion: Date,
   hora_recepcion: string,
   lugar: string,

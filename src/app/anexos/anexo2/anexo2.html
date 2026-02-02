@@ -1,83 +1,89 @@
+    <main class="fade-in py-5 bg-soft-gray">
+      <div class="container container-narrow">
+        
+        <div class="form-header text-center mb-5">
+          <h1 class="display-6 fw-bold text-navy">Buzón de sugerencias</h1>
+          <p class="text-muted lead">Estamos comprometidos con brindarles el mejor servicio. Queremos escuchar tus opiniones para poder mejorar cada día.</p>
+          
+          <div class="project-info-top mt-4 p-2 rounded-3 bg-white shadow-sm border">
+             <p class="mb-0 small text-muted text-uppercase fw-bold tracking-wider">
+               Proyecto de Apoyo al Fortalecimiento del Sistema Nacional de Salud (P180349)
+             </p>
+          </div>
+        </div>
 
-<header>
-    <h1>Proyecto de Apoyo al Fortalecimiento del Sistema Nacional de Salud de la Republica Dominicana</h1>
-</header>
+        <form (ngSubmit)="onSubmit()" #suggestionForm="ngForm" class="modern-form">
+          
+          <!-- SECTION 1: Datos de Usuario -->
+          <div class="form-card mb-4 shadow-sm animate-up">
+            <h4 class="card-title"><i class="bi bi-person-circle me-2"></i>Datos de Usuario</h4>
+            <hr class="mb-4 opacity-10">
+            
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-modern" for="nombre">Nombre Completo:</label>
+                <input name="nombre" type="text" id="nombre" class="form-control-modern" placeholder="Ej: Juan Pérez" [(ngModel)]="formData.nombre">
+              </div>
+              
+              <div class="col-md-6">
+                <label class="form-label-modern" for="cedula">Cédula:</label>
+                <input name="cedula" type="text" id="cedula" class="form-control-modern" placeholder="000-0000000-0" [(ngModel)]="formData.cedula">
+              </div>
 
+              <div class="col-md-8">
+                <label class="form-label-modern" for="correo">Dirección de correo electrónico:</label>
+                <input name="correo" type="email" id="correo" class="form-control-modern" placeholder="usuario@ejemplo.com" [(ngModel)]="formData.correo">
+              </div>
 
-<h5>(P180349)</h5>
+              <div class="col-md-4">
+                <label class="form-label-modern" for="telefono">Teléfono:</label>
+                <input name="telefono" type="text" id="telefono" class="form-control-modern" placeholder="809-000-0000" [(ngModel)]="formData.telefono">
+              </div>
+            </div>
+          </div>
 
-<h4>Buzón de sugerencias</h4>
+          <!-- SECTION 2: Detalles del Incidente/Sugerencia -->
+          <div class="form-card mb-4 shadow-sm animate-up">
+            <h4 class="card-title"><i class="bi bi-chat-left-text me-2"></i>Información de la Sugerencia</h4>
+            <hr class="mb-4 opacity-10">
 
-<h4>Estamos Comprometidos con brindarles el mejor servcio. Queremos escuchar tus opiniones para poder mejorar cada dia</h4>
+            <div class="row g-3 mb-4">
+               <div class="col-md-6">
+                <label class="form-label-modern" for="fecha">Fecha del Suceso:</label>
+                <input type="date" id="fecha" name="fecha" class="form-control-modern" [(ngModel)]="formData.fecha">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-modern" for="lugar">Lugar del Incidente:</label>
+                <input name="lugar" type="text" id="lugar" class="form-control-modern" placeholder="Centro de salud o ubicación" [(ngModel)]="formData.lugar">
+              </div>
+            </div>
 
-<main>
+            <div class="mb-4">
+              <label class="form-label-modern">Seleccionar tipo de acción:</label>
+              <select name="tipo-accion" class="form-select-modern" [(ngModel)]="formData.tipo_accion">
+                <option value="" disabled selected>Seleccione una opción...</option>
+                <option value="sugerencia">Sugerencia</option>
+                <option value="solicitud">Solicitud</option>
+                <option value="queja">Queja</option>
+                <option value="reclamo">Reclamo</option>
+              </select>
+            </div>
 
-<app-redirect-hp></app-redirect-hp>
+            <div class="mb-2">
+              <label class="form-label-modern">Describa de forma detallada:</label>
+              <textarea name="detalle" rows="6" class="form-control-modern" placeholder="Escriba aquí sus comentarios..." [(ngModel)]="formData.detalle"></textarea>
+            </div>
+          </div>
 
+          <!-- SUBMIT ACTION -->
+          <div class="text-center mb-5">
+            <button type="submit" class="btn-submit-modern w-100 py-3 shadow mb-3">
+              <i class="bi bi-check-lg fs-5 me-2"></i>
+              Guardar Sugerencia
+            </button>
+            <h5 class="text-navy fw-bold mt-4">¡Gracias, su opinión es importante!</h5>
+          </div>
 
-<form (ngSubmit)="onSubmit()">
-<h4>Datos de usuario</h4>
-
-<div>
-    <label class="label-input" for="nombre">Nombre:
-    <input name="nombre" type="text" id="nombre" [(ngModel)]="formData.nombre">
-    </label>
-
-    <label class="label-input" for="cedula">Cédula:
-    <input name="cedula" type="text" id="cedula" [(ngModel)]="formData.cedula">
-    </label>
-
-    <label for="correo" class="label-input"> Dirección de correo electronico:
-    <input name="correo" type="email" id="correo" [(ngModel)]="formData.correo">
-    </label>
-
-    <label for="fecha">Fecha:
-<div class="date-input-container">
-    <input type="date" id="birth-date" name="birth-date">
-</div>
-    </label>
-
-    <label class="tel-in" for="telefono">Telefono:
-    <input name="telefono" type="text" id="telefono" [(ngModel)]="formData.telefono">
-    </label>
-
-    <label for="lugar"> Lugar del Incidente
-    <input name = "lugar" type="text" id="lugar" [(ngModel)]="formData.lugar">
-    </label>
-</div>
-
-<div>
-    <label>Seleccionar tipo de accion:
-
-    <div>
-        <select name="tipo-accion" [(ngModel)]="formData.tipo_accion">
-            <option value="sugerencia">Sugerencia</option>
-            <option value="solicitud">Solicitud</option>
-            <option value="queja">Queja</option>
-            <option value="reclamo">Reclamo</option>
-        </select>
-    </div>
-   </label>
-</div>
-
-<div>
-    <label>Describa de forma detallada
-    <textarea name="detalle"  rows="10" cols="50" [(ngModel)]="formData.detalle"></textarea>
-    </label>
-</div>
-
-<button class="submit-button" type="submit">
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-            </svg>
-
-    Guardar</button>
-
-</form>
-<h3 style=" margin-bottom: 20px; text-align: center;">¡Gracias su opinión es importante!</h3>
-</main>
-
-<footer>
-    <app-footer></app-footer>
-</footer>
-
+        </form>
+      </div>
+    </main>

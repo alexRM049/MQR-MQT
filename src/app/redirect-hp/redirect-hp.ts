@@ -5,7 +5,7 @@ import { RouterModule, Router} from '@angular/router';
   selector: 'app-redirect-hp',
   imports: [RouterModule],
   templateUrl: './redirect-hp.html',
-  styleUrl: './redirect-hp.css',
+  styleUrl: '../anexos/anexos.css',
 })
 export class RedirectHP {
 

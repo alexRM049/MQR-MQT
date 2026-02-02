@@ -37,7 +37,8 @@ export class Anexo4Component {
   firmaresponsable: '',
   nombreinteresado: '',
   cargointeresado: '',
-  firmainteresado: ''
+  firmainteresado: '',
+  aceptacion_status:'',
  } 
 
   onSubmit () {

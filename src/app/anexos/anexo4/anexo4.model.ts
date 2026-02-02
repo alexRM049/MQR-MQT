@@ -15,5 +15,6 @@ export interface anexo4 {
   firmaresponsable: string,
   nombreinteresado: string,
   cargointeresado: string,
-  firmainteresado: string
+  firmainteresado: string,
+  aceptacion_status: string
 }

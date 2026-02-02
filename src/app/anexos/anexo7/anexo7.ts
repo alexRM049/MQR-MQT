@@ -7,7 +7,7 @@ import { Footer } from '../../footer/footer';
   selector: 'app-anexo7',
   imports: [FormsModule, RedirectHP, Footer],
   templateUrl: './anexo7.html',
-  styleUrl: '../anexos.css',
+  styleUrl: './anexo7.css',
 })
 export class Anexo7Component {
   formsData: any = {

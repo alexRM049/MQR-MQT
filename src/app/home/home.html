@@ -2,66 +2,56 @@
   <app-header></app-header>
 
 
-<main>
+<main class="fade-in">
 
-  <div class="p-3 mb-2 bg-transparent text-body">
-    <h2 class="como-utilizar">¿COMO UTILIZAR EL MQR Y MQT?</h2>
-    <p class="center-letters h5 dark-letters">Aprende en 3 pasos</p>
-    <i class="bi bi-1-circle"></i>
-  </div>
-
-<section class="container center">
-  <div class="row">
-    
-    <div class="col-12 col-md-4 mb-3">
-      <div class="card border-light h-100">
-        <div class="card-header"><h2 class="number">1</h2></div>
-        <div class="card-body">
-          <h5 class="card-title">Identifica cuál es el tipo de reporte que necesitas realizar.</h5>
+  <!-- Hero Section -->
+      <section class="hero-section py-5 text-center">
+        <div class="container">
+          <h2 class="display-5 fw-bold text-navy animate-up">¿CÓMO UTILIZAR EL MQR Y MQT?</h2>
+          <p class="lead text-muted animate-up delay-1">Sigue estos 3 simples pasos para gestionar tu solicitud</p>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="col-12 col-md-4 mb-3">
-      <div class="card border-light h-100">
-        <div class="card-header"><h2 class="number">2</h2></div>
-        <div class="card-body">
-          <h5 class="card-title">Completa el formulario con la opción Identificada.</h5>
+  <!-- Steps Grid -->
+      <section class="container mb-5">
+        <div class="row g-4">
+          @for (step of steps(); track step.num) {
+            <div class="col-12 col-md-4">
+              <div class="step-card shadow-sm h-100">
+                <div class="step-badge">{{ step.num }}</div>
+                <div class="step-content">
+                  <p class="mb-0">{{ step.text }}</p>
+                </div>
+              </div>
+            </div>
+          }
         </div>
+      </section>
+
+
+      <!-- Action Section -->
+      <section class="action-section py-5 bg-soft-gray">
+        <div class="container">
+          <h1 class="text-center mb-5 section-title">Comienza ahora</h1>
       </div>
-    </div>
 
-    <div class="col-12 col-md-4 mb-3">
-      <div class="card border-light h-100">
-        <div class="card-header"><h2 class="number">3</h2></div>
-        <div class="card-body">
-          <h5 class="card-title">Procede a enviar el formulario debidamente completado y será recibido por un equipo especializado para gestionar tu caso.</h5>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  
-</section>
-
-
-<h1 class="display-5 dark-letters title-space">Comienza ahora</h1>
-
-<section>
-    <ul >
-      <div class = "center-cards">
+      <div class="form-list-container">
         @for (anexoItem of listaAnexosget; track anexoItem.anexo){
-          <div class="carta-anexos">
-             <app-card-anexos
-            [anexos] = "anexoItem">
-            </app-card-anexos>  
+        
+            
+             <div class="carta-anexos">
+             <app-card-anexos 
+             [anexos] = "anexoItem">
+             </app-card-anexos>  
           </div>
+            
+
+          
           
              
         }
         </div>
-</ul>
+
 </section>
 
 

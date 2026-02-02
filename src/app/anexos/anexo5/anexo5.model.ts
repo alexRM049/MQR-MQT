@@ -1,5 +1,6 @@
 export interface anexo5 {
-     numeroCaso: string,
+  nombre: string,
+  numeroCaso: string,
   Unidad_Ejecutora: string,
   subproyecto: string,
   conprosub: string,

@@ -1,381 +1,188 @@
-
-
-/* --- Global Form Styling --- */
-header {
-  
-    background-color: #2A385E;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    
-
-}
-
-h1{
-    color: white;
-}
-
-h2 {
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-
-
-form {
-    max-width: 1000px;
-    margin: 40px auto; /* Centers the form and adds vertical spacing */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-}
-
-/* Style for all general form groups */
-.form-group {
-    margin-bottom: 20px;
-}
-
-/* Style for all labels (except radio/checkbox for now) */
-.form-group label {
-    display: block; /* Makes the label take up its own line */
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Style for text, email, password, etc., inputs and textareas */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea,
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box; /* Ensures padding doesn't increase the total width */
-    transition: border-color 0.3s;
-}
-
-/* Focus state for better accessibility */
-input:focus,
-textarea:focus,
-select:focus {
-    border-color: #007bff; /* Highlight color on focus */
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
-}
-
-textarea {
-    resize: vertical; /* Allows only vertical resizing */
-    min-height: 100px;
-}
-
-/* --- Radio and Checkbox Specific Styling (Key requirement) --- */
-
-/* Use Flexbox on the container to align the input and its immediate label */
-.radio-option,
-.checkbox-option {
-    display: flex;
-    align-items: center; /* Vertically aligns the input and label text */
-    margin-right: 15px; /* Spacing between multiple radio/checkbox options */
-}
-
-/* This is the container for a *group* of radio buttons */
-.radio-group,
-.checkbox-group {
-    display: flex; /* Makes the entire group of options line up horizontally */
-    flex-wrap: wrap; /* Allows options to wrap to the next line on small screens */
-    gap: 15px; /* Spacing between options */
-}
-
-/* Style the label text for radio/checkbox */
-.radio-option label,
-.checkbox-option label {
-    display: inline; /* Overrides the 'display: block' from the general label rule */
-    font-weight: normal; /* Less emphasis than the main form-group label */
-    margin-bottom: 0; /* Remove margin from the general label rule */
-    cursor: pointer;
-}
-
-/* Style the actual radio/checkbox input */
-.radio-option input[type="radio"],
-.checkbox-option input[type="checkbox"] {
-    margin-right: 5px; /* Spacing between the input circle/box and its label text */
-    cursor: pointer;
-}
-
-
-/* --- Submission Button Styling --- */
-button[type="submit"] {
-    display: block;
-    width: 100%; /* Full width button */
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-button[type="submit"]:active {
-    transform: translateY(1px);
-}
-
-/* --- Radio and Checkbox Specific Styling (Updated Spacing) --- */
-
-/* Use Flexbox on the container to align the input and its immediate label */
-.radio-option,
-.checkbox-option {
-    display: flex;
-    align-items: center; /* Vertically aligns the input and label text */
-    margin-right: 15px;
-}
-
-/* Style the actual radio/checkbox input */
-.radio-option input[type="radio"],
-.checkbox-option input[type="checkbox"] {
-    /* *** THIS IS THE KEY CHANGE *** */
-    margin-right: 8px; /* INCREASED from 5px to 8px for better separation */
-    /* *** END OF KEY CHANGE *** */
-    cursor: pointer;
-}
-
-.radio-in{
-    margin-right: 8px;
-    padding-right: 8px;
-}
-
-.tel-in{
-    display: block;
-}
-
-label{
-    margin-top: 20px;
-}
-
-button{
-    margin-top: 20px;
-}
-
-.title{
-    margin-top: 20px;
-}
-
-.label-input {
-    margin-right: 30px
-}
-
-.matInput{
-    background-color: #0056b3;
-}
-
-/*
- * Base Styles for Date and Datetime-local Inputs
- * This helps reset default browser styling for a more consistent look.
- */
-
-input[type="date"],
-input[type="datetime-local"] {
-  /* Box model for consistent sizing and padding */
-  box-sizing: border-box;
-  padding: 0.5em 0.75em;
-  border: 1px solid #ccc; /* Light grey border */
-  border-radius: 4px; /* Slightly rounded corners */
-  font-family: inherit; /* Use the site's default font */
-  font-size: 1rem; /* Standard font size */
-  line-height: 1.5; /* Good line height for text alignment */
-  color: #333; /* Darker text color */
-  background-color: #fff; /* White background */
-  transition: border-color 0.2s, box-shadow 0.2s; /* Smooth transitions for focus effects */
-  cursor: pointer; /* Indicate that it's an interactive element */
-}
-
-/*
- * Focus State Styles
- * Provides visual feedback when the user is interacting with the input.
- */
-
-input[type="date"]:focus,
-input[type="datetime-local"]:focus {
-  border-color: #007bff; /* Primary color border */
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle blue glow */
-  outline: none; /* Remove default browser focus outline */
-}
-
-/*
- * Hover State Styles
- * Provides subtle visual feedback when hovering.
- */
-
-input[type="date"]:hover,
-input[type="datetime-local"]:hover {
-  border-color: #999;
-}
-
-/*
- * Disabled State Styles
- * Makes it clear when an input is not editable.
- */
-
-input[type="date"]:disabled,
-input[type="datetime-local"]:disabled {
-  background-color: #f0f0f0;
-  color: #999;
-  border-color: #ddd;
-  cursor: not-allowed;
-}
-
-/*
- * Placeholder Text Styles (if applicable, though date inputs rarely use them)
- */
-
-input[type="date"]::placeholder,
-input[type="datetime-local"]::placeholder {
-  color: #aaa;
-  font-style: italic;
-}
-
-/*
- * Cross-Browser Specific Styling for the Calendar/Time Icon
- * This section targets the default browser controls, which are tricky to style.
- * In many cases, it's better to hide the default icon and use a custom one.
- */
-
-/* WebKit (Chrome, Safari) specific styles: */
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-  /* Recommended: Hide default icon and use a background-image */
-  /* This allows for a custom icon that is easier to position. */
-  opacity: 0;
-  width: 1em; /* Make the click area slightly larger */
-  position: absolute; /* Allows for better positioning of the replacement icon */
-  right: 0.5em;
-  cursor: pointer;
-
-  /* If you want to customize the icon without hiding it (limited control): */
-  /* filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg); */
-}
-
-/* Firefox specific styles: */
-/* Firefox gives you even less control over the icon.
- * The best practice for full customization is to use a wrapper div
- * and apply a custom background image to the *input* itself.
- */
-
-/*
- * Optional: Custom Icon Replacement (Recommended Technique)
- * 1. Hide the default calendar picker indicator (done above for WebKit).
- * 2. Wrap the input in a div with 'position: relative'.
- * 3. Apply the custom calendar icon as a background image to the input.
- */
-
-/* Wrapper for Custom Icon */
-.date-input-container {
-  position: relative;
-  display: inline-block;
-  /* Adjust width as needed */
-}
-
-.date-input-container input[type="date"],
-.date-input-container input[type="datetime-local"] {
-  /* Padding on the right to make space for the icon */
-  padding-right: 2.5em;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>');
-  background-repeat: no-repeat;
-  background-position: right 0.75em center;
-  background-size: 1.25rem;
-}
-
-/* Focus state for the custom icon setup */
-.date-input-container input[type="date"]:focus,
-.date-input-container input[type="datetime-local"]:focus {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>');
-}
-
-/* Style for input when it has a value (to prevent custom icon from clashing with the value text) */
-.date-input-container input:valid {
-    /* You might want to adjust colors or other visual cues here */
-}
-/* END Custom Icon Replacement Styles */
-
-/* Custom utility for clean transitions */
-    .animate-fadeIn {
-      animation: fadeIn 0.5s ease-out;
+    :host {
+      --primary-navy: #1a2b4b;
+      --accent-blue: #007bff;
+      --soft-gray: #f1f5f9;
+      --navy-light: #2d3e5d;
+      font-family: 'Inter', system-ui, sans-serif;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .container-narrow { max-width: 850px; }
+    .bg-soft-gray { background-color: var(--soft-gray); min-height: 100vh; }
+    .text-navy { color: var(--primary-navy); }
+    .bg-light-blue { background-color: #f0f7ff; border: 1px solid #dbeafe; }
+
+    /* Navbar Modern */
+    .navbar-modern {
+      background: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    /* Ensure the datetime-local input looks good */
-    input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    .logo-img { height: 50px; }
+    .btn-back {
+      background: transparent;
+      border: 1px solid #e2e8f0;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: #64748b;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .btn-back:hover { background: #f8fafc; color: var(--primary-navy); }
+
+    /* Card Styling */
+    .form-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      border: 1px solid #e2e8f0;
+    }
+    .card-title {
+      font-weight: 700;
+      color: var(--primary-navy);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Form Elements */
+    .form-label-modern {
+      display: block;
+      font-weight: 600;
+      color: var(--navy-light);
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+    .form-control-modern, .form-select-modern {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+    .form-control-modern:focus, .form-select-modern:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+      outline: none;
+    }
+
+    /* Custom Radio Styling */
+    .radio-container {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      padding-left: 30px;
       cursor: pointer;
+      font-weight: 500;
+      user-select: none;
+    }
+    .radio-container input { position: absolute; opacity: 0; cursor: pointer; }
+    .radio-checkmark {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+      border: 2px solid #cbd5e1;
+      border-radius: 50%;
+    }
+    .radio-container:hover input ~ .radio-checkmark { border-color: var(--accent-blue); }
+    .radio-container input:checked ~ .radio-checkmark {
+      background-color: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+    .radio-checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 6px;
+      top: 6px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: white;
+    }
+    .radio-container input:checked ~ .radio-checkmark:after { display: block; }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
     }
 
-    /* Animation when it enters */
-@keyframes slide-in {
-  from { 
-    opacity: 0; 
-    transform: translateY(-10px); 
-    max-height: 0; 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-    max-height: 500px; 
-  }
-}
+    /* File Upload */
+    .file-upload-wrapper { width: 100%; }
+    .file-input { display: none; }
+    .file-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      border: 2px dashed #e2e8f0;
+      border-radius: 12px;
+      cursor: pointer;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+    .file-label:hover { border-color: var(--accent-blue); background: #f0f7ff; color: var(--accent-blue); }
 
-/* Animation when it leaves */
-@keyframes slide-out {
-  from { 
-    opacity: 1; 
-    transform: translateY(0); 
-    max-height: 500px; 
-  }
-  to { 
-    opacity: 0; 
-    transform: translateY(-10px); 
-    max-height: 0; 
-  }
-}
+    /* Buttons */
+    .btn-submit-modern {
+      background: var(--accent-blue);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+    .btn-submit-modern:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+    }
 
-.slide-in {
-  animation: slide-in 0.3s ease-out forwards;
-}
-
-.slide-out {
-  animation: slide-out 0.2s ease-in forwards;
-}
-
-/* Updated error-box to ensure it's clearly red */
+    /* Errors */
     .error-box {
+      background: #fff1f2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      background-color: #fee2e2; /* Light red background */
-      color: #dc2626;             /* Strong red text */
-      padding: 16px;
-      border-radius: 8px;
-      border: 1px solid #f87171;   /* Red border */
-      margin-bottom: 24px;
-      font-weight: 500;
-      animation: fadeIn 0.3s ease-out;
-      margin-top: 10px;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
-    .error-message{
-      margin-top: 10px;
+    .error-icon {
+      background: #dc2626;
+      color: white;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 10px;
     }
 
-    .bottom-space{
-      margin-bottom: 20px;
+    .footer-modern { background: var(--primary-navy); }
+
+    /* Animations */
+    .fade-in { animation: fadeIn 0.8s ease-out; }
+    .animate-up { animation: up 0.6s ease-out forwards; opacity: 0; transform: translateY(20px); }
+    .delay-1 { animation-delay: 0.1s; }
+    .slide-in { animation: slideIn 0.3s ease-out; overflow: hidden; }
+    
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes up { to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { max-height: 0; opacity: 0; } to { max-height: 500px; opacity: 1; } }
+
+    @media (max-width: 768px) {
+      .form-card { padding: 1.5rem; }
+      .options-grid { grid-template-columns: 1fr; }
     }
