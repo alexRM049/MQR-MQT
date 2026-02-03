@@ -11,6 +11,8 @@ import { Footer } from '../../footer/footer';
 })
 export class Anexo7Component {
   formsData: any = {
+  
+  eMnumeroCaso: '',
   numeroCaso:'',
   satisfecho:'',
   nivelSatisfecho: '',

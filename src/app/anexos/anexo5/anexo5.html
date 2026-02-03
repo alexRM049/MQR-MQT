@@ -1,637 +1,541 @@
+ <app-redirect-hp></app-redirect-hp>
 
-<header>
-    <h1>Formulario de registro de incidentes de explotación y
-abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
+<main class="fade-in py-5 bg-soft-gray">
+  <div class="container container-narrow">
+    <div class="form-header text-center mb-5">
+      <h1 class="display-6 fw-bold text-navy">Formulario de registro de incidentes de explotación y abuso sexuales, y acoso sexual (EyAS/ASx)</h1>
+      <p class="text-muted">Por favor, complete la información solicitada a continuación.</p>
+    </div>
 
-</header>
+    <form (ngSubmit)="onSubmit()" #eyasForm="ngForm" class="modern-form">
+      
+      <!-- SECCIÓN 1: Unidad Ejecutora y Datos del Proyecto -->
+      <div class="form-card mb-4 shadow-sm animate-up">
+        <h4 class="card-title"><i class="bi bi-building me-2"></i>Unidad Ejecutora</h4>
+        <hr class="mb-4 opacity-10">
+        
+        <div class="mb-4">
+          <label class="form-label-modern" for="numeroCaso">Número de caso:</label>
+          <input type="text" class="form-control-modern" name="numeroCaso" required [(ngModel)]="formsData.numeroCaso" placeholder="Ej: CASO-2024-001">
+          
+          @if(eMnumeroCaso()) {
+            <div class="error-box mt-2">
+              <span class="error-icon">!</span>
+              <span>{{ eMnumeroCaso() }}</span>
+            </div>
+          }
+        </div>
 
-<app-redirect-hp></app-redirect-hp>
-
-<main>
-
-
-<form (ngSubmit)="onSubmit()">
-    <div>
-    <h4>Unidad Ejecutora</h4>
-
-    
-    <label for="numeroCaso">Numero de caso:
-    <input required type="text" name="numeroCaso" [(ngModel)]="formsData.numeroCaso">
-    </label>
-    
-     @if(eMnumeroCaso()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMnumeroCaso() }}</span>
-      </div>
-    }
-    
-    <div>
-       <label for="Unidad-Ejecutora">Indicar Nombre de la Unidad Ejecutora:
-        <select name="Unidad-Ejecutora" [(ngModel)]="formsData.Unidad_Ejecutora">
+        <div class="mb-4">
+          <label class="form-label-modern" for="Unidad-Ejecutora">Indicar Nombre de la Unidad Ejecutora:</label>
+          <select class="form-select-modern" name="Unidad-Ejecutora" [(ngModel)]="formsData.Unidad_Ejecutora">
+            <option value="" disabled selected>Seleccione una unidad...</option>
             <option value="MISPAS">MISPAS</option>
             <option value="MIVHED">MIVHED</option>
-        </select>
-       </label> 
-    </div>
-     @if(eMUnidad_Ejecutora()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMUnidad_Ejecutora() }}</span>
-      </div>
-    }
-    </div>
-
-    <div>
-    <h4>Nombre del Proyecto</h4>
-    <h5>Proyecto de Apoyo al Fortalecimiento del Sistema Nacional de Salud de la República Dominicana (P180349)</h5>
-    </div>
-
-    <div>
-        <label for="subproyecto">Nombre del subproyecto:
-        <input name="subproyecto" type="text" id="subproyecto" [(ngModel)]="formsData.subproyecto">
-        </label>
-
-         @if(eMsubproyecto()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMsubproyecto() }}</span>
-      </div>
-    }
-
-        <label for="conprosub">Nombre del contratista, proveedor o subcontratista:
-        <input name="conprosub" type="text" id="conprosub" [(ngModel)]="formsData.conprosub">
-        </label>
-
-         @if(eMconprosub()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMconprosub() }}</span>
-      </div>
-    }
-
-        <label for="encargado">Nombre y firma del personal encargado del registro de incidentes de EyAS/ASx en la localidad:
-        <input name="encargado" type="text" id="encargado" [(ngModel)]="formsData.encargado">
-        </label>
-
-         @if(eMencargado()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMencargado() }}</span>
-      </div>
-    }
-
-        <div>
-        <label for="fecha">Fecha y hora del incidente: 
-        <br/>
-        <div class="date-input-container">
-    <input type="datetime-local" id="event-date" name="event-date" [(ngModel)]="formsData.fecha_hora_incidente" required>
-    </div>
-        </label>
-
-         @if(eMfecha_hora_incidente()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMfecha_hora_incidente() }}</span>
-      </div>
-    }
-
-        </div>
-        <div>
-        <label for="lugar">Lugar de Registro:
-        <input name="lugar" type="text" id="lugar" [(ngModel)]="formsData.lugar">
-        </label>
-        
-         @if(eMlugar()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMlugar() }}</span>
-      </div>
-    }
-        </div>
-        <div>
-              <label for="fecharecepcion">Fecha y hora de la Recepción: 
-        <br/>
-                <div class="date-input-container">
-    <input type="datetime-local" id="event-date" name="event-date" [(ngModel)]="formsData.fecha_hora_recepcion" required>
-         @if(eMfecha_hora_recepcion()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMfecha_hora_recepcion() }}</span>
-      </div>
-    }
-    </div>
-        </label> 
-        </div>
-     
-
-    </div>
-
-        <div>
- <h5 class="title">Medios de Recepción</h5>
-        <div>
-        <input (click)="selectedOption.set(null)" value="verbal" name="recepcion" class="radio-in" type="radio" id="verbal" [(ngModel)]="formsData.medios_Recepcion">
-        <label for="verbal">Verbal</label>
-        </div>
-        <div>
-        <input (click)="selectedOption.set(null)" value="formsData.telefonico" name="recepcion" class="radio-in" type="radio" id="telefonico" [(ngModel)]="formsData.medios_Recepcion">
-        <label for="telefonico"> Telefonico</label>
-        </div>
-        <div>
-        <input (click)="selectedOption.set(null)" value="formsData.oficina" name="recepcion" class="radio-in" type="radio" id="oficina" [(ngModel)]="formsData.medios_Recepcion">
-        <label for="oficina"> Oficina de Atencion Permanente</label>
-        </div>
-        <div>
-        <input (click)="selectedOption.set(null)" value="formsData.otros" name="recepcion" class="radio-in" type="radio" id="otros" [(ngModel)]="formsData.medios_Recepcion">
-        <label for="otros">Otros medios</label>
-        </div>
-        <div>
-        <input
-        name="recepcion"
-        class="radio-in" 
-        type ="radio" 
-        id="escrito"
-        value="escrito"
-        [(ngModel)]="formsData.medios_Recepcion"
-        (change) = "selectedOption.set('optionC')"
-        [checked] = "selectedOption() === 'optionC'">
-       <label for="escrito">Escrito</label> 
-
-       @if(eMmedios_Recepcion()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMmedios_Recepcion() }}</span>
-      </div>
-    }
-    
-        </div>    
-        
-
-
-
-        @if(selectedOption() === 'optionC') {
-        
-        <h5 class="title">Especifique la recepcion escrita:</h5>
-        <div animate.enter="slide-in" animate.leave="slide-out">
-        <div>
-        <input name="formsData.selectedOption" value="carta" type="radio" id="carta" [(ngModel)]="formsData.recepcion_Escrita">
-        <label for="carta"> Carta </label> 
-        </div>
-
-        <div>
-            <input name="selectedOption" value="Correo electeronico" type="radio" id="correo" [(ngModel)]="formsData.recepcion_Escrita">
-            <label for="correo"> Correo electeronico</label>
-        </div>
-        
-        <div>
-            <input name="selectedOption" value="Buzón virtual/whatsApp" type="radio" id="virtual" [(ngModel)]="formsData.recepcion_Escrita">
-            <label for="virtual">Buzón virtual/whatsApp</label> 
-        </div>
-
-        <div>
-            <input name="selectedOption" value="Buzón de sugerencia" type="radio" id="sugerencia" [(ngModel)]="formsData.recepcion_Escrita">
-            <label for="sugerencia">Buzón de sugerencia</label> 
-        </div>
-        </div>
-        }
-
-    </div>
-
-    <div>
-        <h5 class="title">Confidencialidad / Anonimato del reporte</h5>
-
-        
-        <input name="Confidencialidad" value="confidencial" type="radio" id="confidencial" [(ngModel)]="formsData.confidencial_Concentimiento">
-        <label for="confidencial">Confidencial</label>
-        <div>
-        <input name="Confidencialidad" value="anonimo" type="radio" id="anonimo" [(ngModel)]="formsData.confidencial_Concentimiento">
-        <label for="anonimo">Anónimo</label>
-        </div>
-        <div>
-        <input name="Confidencialidad" value="consentimiento dar su identidad" type="radio" id="consentimiento" [(ngModel)]="formsData.confidencial_Concentimiento">
-        <label for="">consentimiento dar su identidad</label>
-        </div>
-
-        @if(eMconfidencial_Concentimiento()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMconfidencial_Concentimiento() }}</span>
-      </div>
-    }
-    </div>
-
-    <div>
-        <h5 class="title">Quien reporta</h5>
-        
-        <div>
-        <input (click)="selectedOption2.set(null)" name="quien-reporta" value="sobreviviente" type="radio" id="sobreviviente" [(ngModel)]="formsData.quien_Reporta">
-        <label for="sobreviviente">sobreviviente</label>
-        </div>
-        <div>
-        <input (click)="selectedOption2.set(null)" name="quien-reporta" value="tercera-persona" type="radio" id="terceros" [(ngModel)]="formsData.quien_Reporta">
-        <label for="terceros">Tercera persona</label>
-        </div>
-        <div>
-        <input (click)="selectedOption2.set(null)" name="quien-reporta" value="testigo" type="radio" id="testigo" [(ngModel)]="formsData.quien_Reporta">
-        <label for="testigo">Testigo</label>
-        </div>
-        
-        <input type="radio"
-        name="quien-reporta" 
-        value="otro"
-        id="otro"
-        value="option-otro"
-        (change) = "selectedOption2.set('option-otro')"
-        [checked] = "selectedOption2() === 'option-otro'"
-        [(ngModel)]="formsData.quien_Reporta">
-        <label for="otro"> Otro (especifique)</label>
-
-        @if(selectedOption2() === 'option-otro'){
-            <div animate.enter="slide-in" animate.leave="slide-out">
-            <label for="espeficifique">Favor espeficifique quien reporta:</label>
-            <input name="especifique" type="text" id="especifique" [(ngModel)]="formsData.especifique">
+          </select>
+          
+          @if(eMUnidad_Ejecutora()) {
+            <div class="error-box mt-2">
+              <span class="error-icon">!</span>
+              <span>{{ eMUnidad_Ejecutora() }}</span>
             </div>
-        }
-
-        @if(eMquien_Reporta()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMquien_Reporta() }}</span>
-      </div>
-    }
-
-    </div>
-
-    <h2>I. DATOS DEL AGENTE GENERADOR</h2>
-
-    <div>
-        <div>
-        <label class="label-input"  for="org" >UEP, MISPAS, MIVHED, SNS:
-        <input name="org" type="text" id="org" [(ngModel)]="formsData.org">
-        </label>
-
-        @if(eMorg()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMorg() }}</span>
-      </div>
-    }
-
+          }
         </div>
 
-        <div>
-        <label class="label-input"  for="contratista">Contratistas:
-        <input name="contratista" type="text" id="contratista" [(ngModel)]="formsData.contratista">
-        </label>
-
-        @if(eMcontratista()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMcontratista() }}</span>
-      </div>
-    }
-        </div>
-        
-        <div>
-        <label class="label-input"  for="subcontratista">subcontratista:
-        <input name="subcontratista" type="text" id="subcontratista" [(ngModel)]="formsData.subcontratista">
-        </label>
-
-        @if(eMsubcontratista()) {
-        <div class="error-box error-message" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMsubcontratista() }}</span>
-      </div>
-    }
-
-        </div>
-        
-        <div>
-        <label for="proveedor"> Proveedores de servicios:
-        <input name="proveedor" type="text" id="proveedor" [(ngModel)]="formsData.proveedor">
-        </label>
-
-        @if(eMproveedor()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMproveedor() }}</span>
-      </div>
-    }
-
-        </div>
-        
-
-        
-
-    </div>
-
-    <h2>II. INFORMACION DEL CASO</h2>
-
-    <div>
-        <h4 class="title">2.1 Tipo de caso</h4>
-
-        <p>¿Que tipo de reporte realizará?:</p>
-
-        <div>
-        <input name="realizar" value="Explotacion Sexual" type="radio" id="explotacion" [(ngModel)]="formsData.tipo_Reporte">
-        <label for="explotacion">Explotación Sexual</label>
-        </div>
-        <div>
-        <input name="realizar" value="Acoso Sexual" type="radio" id="acoso" [(ngModel)]="formsData.tipo_Reporte">
-        <label for="acoso">Acoso Sexual</label>
+        <div class="project-info p-3 rounded-3 bg-light-blue mb-4">
+          <h6 class="text-uppercase text-accent fw-bold small mb-1">Nombre del proyecto</h6>
+          <p class="mb-1 fw-bold text-navy">Proyecto de Apoyo al Fortalecimiento del Sistema Nacional de Salud de la República Dominicana</p>
+          <p class="small text-muted mb-0">(P180349)</p>
         </div>
 
-        <input name="realizar" value="Abuso Sexual" type="radio" id="abuso" [(ngModel)]="formsData.tipo_Reporte">
-        <label for="abuso">Abuso Sexual</label>
-
-        @if(eMtipo_Reporte()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMtipo_Reporte() }}</span>
-      </div>
-    }
-
-    </div>
-
-    <div>
-        <h4 class="title">2.2 Breve detalle del incidente</h4>
-
-        <textarea name="detalle" rows="10" cols="50" [(ngModel)]="formsData.detalle"></textarea>
-    </div>
-
-    <div>
-        <h4 class="title"><label for="documento"> 2.3 Documentación entregada por el titular
-        <br/>
-        <div class="input-group">
-            <input type="file" class="form-control" id="inputGroupFile01">
-            </div>
-        </label></h4>
-    </div>
-
-    <div>
-        <h4 class="title">2.4 Lugar y fecha del caso</h4>
-
-        <div>
-        <label for="lugar-caso">Lugar del caso:</label>
-        <input name="lugar-caso" type="text" id="lugar-caso" [(ngModel)]="formsData.lugar_caso">
-
-        @if(eMlugar_caso()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMlugar_caso() }}</span>
-      </div>
-    }
-
-        </div>
-        
-        <label for="fecha-caso"> Fecha del caso:</label>
-        <br/>
-        <div class="date-input-container">
-        <input type="date" id="birth-date" name="birth-date" [(ngModel)] = "formsData.fecha_caso">
-        </div>
-
-        @if(eMfecha_caso()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMfecha_caso() }}</span>
-      </div>
-    }
-
-    </div>
-
-    <div>
-        <h4 class="title">2.5 Persona Sobreviviente</h4>
-        <div>
-        <label for="genero">2.5.1 Sexo de la persona sobreviviente:</label>
-        <select id="genero" name="genero" [(ngModel)]="formsData.genero_sobreviviente">
-            <option value="femenino">Femenino</option>
-            <option value="masculino">masculino</option>
-            <option value="otro">Otro / Prefiere no especificar</option>
-        </select>
-
-        @if(eMgenero_sobreviviente()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMgenero_sobreviviente() }}</span>
-      </div>
-        }
-
-        </div>
-        
-        <div>
-        <label for="edad">2.5.2 Edad o grupo etario de la persona sobreviviente:</label>
-        <select id="edad" name="edad" [(ngModel)]="formsData.edad_sobreviviente">
-            <option value="menor">Menor de edad (<10 años)</option>
-            <option value="mayor">Persona adulta (≥18 años)</option>
-            <option value="no-especifica">No especificado</option>
-        </select>
-
-        @if(eMedad_sobreviviente()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMedad_sobreviviente() }}</span>
-      </div>
-        }
-
-        </div>
-        
-        <div>
-        <label for="relacion">2.5.3 Relación con el proyecto:</label>
-        <select id="relacion" name="relacion" [(ngModel)]="formsData.relacion_sobreviviente">
-            <option value="default">Elija una de las opciones</option>
-            <option value="contratista">Trabajadora del proyecto / contratista </option>
-            <option value="miembro">Miembro de la comunidad</option>
-            <option value="PIU">Personal de la PIU / institución ejecutora</option>
-            <option value="otro">Otro (especifique)</option>
-        </select>
-        </div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label-modern" for="subproyecto">Nombre del subproyecto:</label>
+            <input type="text" class="form-control-modern" name="subproyecto" id="subproyecto" [(ngModel)]="formsData.subproyecto" placeholder="Nombre del subproyecto">
             
-        @if(eMrelacion_sobreviviente()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMrelacion_sobreviviente() }}</span>
-      </div>
-        }
-
-    </div>
-
-    <h4 class="title">2.6 Presunto agresor</h4>
-
-    <div>
-        <div>
-        <label for="genero">2.6.1 Sexo del agresor:</label>
-        <select id="genero" name="genero" [(ngModel)]="formsData.genero_agresor">
-            <option value="femenino">Femenino</option>
-            <option value="masculino">masculino</option>
-            <option value="otro">Otro / Prefiere no especificar</option>
-        </select>
-
-        @if(eMgenero_sobreviviente()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMgenero_sobreviviente() }}</span>
-      </div>
-    }
-
+            @if(eMsubproyecto()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMsubproyecto() }}</span>
+              </div>
+            }
+          </div>
+          
+          <div class="col-md-6">
+            <label class="form-label-modern" for="conprosub">Contratista, proveedor o subcontratista:</label>
+            <input type="text" class="form-control-modern" name="conprosub" id="conprosub" [(ngModel)]="formsData.conprosub" placeholder="Nombre completo">
+            
+            @if(eMconprosub()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMconprosub() }}</span>
+              </div>
+            }
+          </div>
         </div>
 
-        <div>
-        <label for="edad">2.6.2 Edad o grupo etario del agresor:</label>
-        <select id="edad" name="edad" [(ngModel)]="formsData.edad_agresor">
-            <option value="menor">Menor de edad (<10 años)</option>
-            <option value="mayor">Persona adulta (≥18 años)</option>
-            <option value="no-especifica">No especificado</option>
-        </select>
-
-        @if(eMedad_agresor()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMedad_agresor() }}</span>
-      </div>
-        }
-
+        <div class="mt-4">
+          <label class="form-label-modern" for="encargado">Personal encargado del registro:</label>
+          <input type="text" class="form-control-modern" name="encargado" id="encargado" [(ngModel)]="formsData.encargado" placeholder="Nombre y firma">
+          
+          @if(eMencargado()) {
+            <div class="error-box mt-2">
+              <span class="error-icon">!</span>
+              <span>{{ eMencargado() }}</span>
+            </div>
+          }
         </div>
-        
-        <div>
-            <label for="relacion">2.6.3 Relación con el proyecto:</label>
-        <select id="relacion" name="relacion" [(ngModel)]="formsData.relacion_agresor">
-            <option value="default">Elija una de las opciones</option>
-            <option value="contratista">Trabajadora del proyecto / contratista </option>
-            <option value="miembro">Miembro de la comunidad</option>
-            <option value="PIU">Personal de la PIU / institución ejecutora</option>
-            <option value="otro">Otro (especifique)</option>
-        </select>
-
-        @if(eMrelacion_agresor()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMrelacion_agresor() }}</span>
       </div>
-        }
 
+      <!-- SECCIÓN 2: Detalles del Incidente -->
+      <div class="form-card mb-4 shadow-sm animate-up delay-1">
+        <h4 class="card-title"><i class="bi bi-calendar-event me-2"></i>Detalles del Incidente</h4>
+        <hr class="mb-4 opacity-10">
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label-modern">Fecha y hora del incidente:</label>
+            <input type="datetime-local" class="form-control-modern" name="fecha_hora_incidente" [(ngModel)]="formsData.fecha_hora_incidente" required>
+            
+            @if(eMfecha_hora_incidente()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMfecha_hora_incidente() }}</span>
+              </div>
+            }
+          </div>
+          
+          <div class="col-md-6">
+            <label class="form-label-modern">Lugar del incidente:</label>
+            <input type="text" class="form-control-modern" name="lugar" id="lugar" [(ngModel)]="formsData.lugar" placeholder="Ej: Oficina Central">
+            
+            @if(eMlugar()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMlugar() }}</span>
+              </div>
+            }
+          </div>
         </div>
-        
-    </div>
 
-    <h2 class="title">III. OBSERVACIONES ADICIONALES</h2>
-    <div>
-    <label for="adicional">Alguna observación que desea agregar:</label>
-    <textarea name="adicional" id="adicional" rows="10" cols="50" [(ngModel)]="formsData.adicional"></textarea>
-    </div>
-    <div>
-        <label for="nombreresponsable"> Nombre del resonsable de la atención:</label>
-        <input name="nombreresponsable" type="text" id="nombreresponsable" [(ngModel)]="formsData.nombreresponsable">
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <label class="form-label-modern">Fecha y hora de recepción:</label>
+            <input type="datetime-local" class="form-control-modern" name="fecha_hora_recepcion" [(ngModel)]="formsData.fecha_hora_recepcion" required>
+            
+            @if(eMfecha_hora_recepcion()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMfecha_hora_recepcion() }}</span>
+              </div>
+            }
+          </div>
+          
+          <div class="col-md-6">
+            <label class="form-label-modern">Lugar de registro:</label>
+            <input type="text" class="form-control-modern" name="lugar-registro" [(ngModel)]="formsData.lugar_registro" placeholder="Ej: Oficina de Quejas">
+          </div>
+        </div>
 
-        @if(eMnombreresponsable()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMnombreresponsable() }}</span>
+        <div class="mt-4">
+          <label class="form-label-modern mb-3">Medios de Recepción:</label>
+          <div class="options-grid">
+            @for(medio of ['Verbal', 'Telefonico', 'Oficina de Atencion Permanente', 'Otros medios']; track medio) {
+              <label class="radio-container">
+                <input type="radio" name="medios_Recepcion" [value]="medio" [(ngModel)]="formsData.medios_Recepcion" (change)="selectedOption.set(null)">
+                <span class="radio-checkmark"></span> {{medio}}
+              </label>
+            }
+            <label class="radio-container">
+              <input type="radio" name="medios_Recepcion" value="Escrito" [(ngModel)]="formsData.medios_Recepcion" 
+                     (change)="selectedOption.set('optionC')" [checked]="selectedOption() === 'optionC'">
+              <span class="radio-checkmark"></span> Escrito
+            </label>
+          </div>
+          
+          @if(eMmedios_Recepcion()) {
+            <div class="error-box mt-2">
+              <span class="error-icon">!</span>
+              <span>{{ eMmedios_Recepcion() }}</span>
+            </div>
+          }
+
+          @if(selectedOption() === 'optionC') {
+            <div class="mt-4 p-4 border-start border-4 border-primary bg-light rounded-3 slide-in">
+              <h6 class="fw-bold mb-3 text-navy">Especifique la recepción escrita:</h6>
+              <div class="options-grid">
+                @for(escrito of ['Carta', 'Correo electrónico', 'Buzón virtual/WhatsApp', 'Buzón de sugerencia']; track escrito) {
+                  <label class="radio-container">
+                    <input type="radio" name="recepcion_Escrita" [value]="escrito" [(ngModel)]="formsData.recepcion_Escrita">
+                    <span class="radio-checkmark"></span> {{escrito}}
+                  </label>
+                }
+              </div>
+            </div>
+          }
+        </div>
       </div>
-        }
 
-    </div>
-    
-    <div>
-        <label for="cargoresponsable">Cargo:</label>
-        <input name="cargoresonsable" type="text" id="cargoresonsable" [(ngModel)]="formsData.cargoresonsable">
+      <!-- SECCIÓN 3: Confidencialidad y Reporte -->
+      <div class="form-card mb-4 shadow-sm animate-up">
+        <h4 class="card-title"><i class="bi bi-shield-lock me-2"></i>Confidencialidad y Reporte</h4>
+        <hr class="mb-4 opacity-10">
 
-        @if(eMnombreresponsable()) {
-        <div class="error-box" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-        </svg>
-        <span>{{ eMnombreresponsable() }}</span>
+        <div class="mb-4">
+          <label class="form-label-modern mb-3">Confidencialidad / Anonimato del reporte:</label>
+          <div class="options-grid">
+            @for(opcion of ['Confidencial', 'Anónimo', 'Consentimiento dar su identidad']; track opcion) {
+              <label class="radio-container">
+                <input type="radio" name="confidencial_Concentimiento" [value]="opcion" [(ngModel)]="formsData.confidencial_Concentimiento">
+                <span class="radio-checkmark"></span> {{opcion}}
+              </label>
+            }
+          </div>
+          
+          @if(eMconfidencial_Concentimiento()) {
+            <div class="error-box mt-2">
+              <span class="error-icon">!</span>
+              <span>{{ eMconfidencial_Concentimiento() }}</span>
+            </div>
+          }
+        </div>
+
+        <div class="mt-4">
+          <label class="form-label-modern mb-3">¿Quién reporta?</label>
+          <div class="options-grid">
+            @for(reportante of ['Sobreviviente', 'Tercera persona', 'Testigo']; track reportante) {
+              <label class="radio-container">
+                <input type="radio" name="quien_Reporta" [value]="reportante" [(ngModel)]="formsData.quien_Reporta" (change)="selectedOption2.set(null)">
+                <span class="radio-checkmark"></span> {{reportante}}
+              </label>
+            }
+            <label class="radio-container">
+              <input type="radio" name="quien_Reporta" value="Otro" [(ngModel)]="formsData.quien_Reporta" 
+                     (change)="selectedOption2.set('option-otro')" [checked]="selectedOption2() === 'option-otro'">
+              <span class="radio-checkmark"></span> Otro (especifique)
+            </label>
+          </div>
+          
+          @if(eMquien_Reporta()) {
+            <div class="error-box mt-2">
+              <span class="error-icon">!</span>
+              <span>{{ eMquien_Reporta() }}</span>
+            </div>
+          }
+
+          @if(selectedOption2() === 'option-otro') {
+            <div class="mt-4 slide-in">
+              <label class="form-label-modern small">Favor especifique quién reporta:</label>
+              <input type="text" class="form-control-modern" name="especifique" [(ngModel)]="formsData.especifique" placeholder="Especificación">
+            </div>
+          }
+        </div>
       </div>
-        }
 
-    </div>
-    
-    <button class="submit-button" type="submit">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-            </svg>
-        Guardar
-    </button>
+      <!-- SECCIÓN 4: Datos del Agente Generador -->
+      <div class="form-card mb-4 shadow-sm animate-up">
+        <h2 class="card-title"><i class="bi bi-person-vcard me-2"></i>I. DATOS DEL AGENTE GENERADOR</h2>
+        <hr class="mb-4 opacity-10">
 
-</form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label-modern" for="org">UEP, MISPAS, MIVHED, SNS:</label>
+            <input type="text" class="form-control-modern" name="org" id="org" [(ngModel)]="formsData.org" placeholder="Organización">
+            
+            @if(eMorg()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMorg() }}</span>
+              </div>
+            }
+          </div>
+          
+          <div class="col-md-6">
+            <label class="form-label-modern" for="contratista">Contratistas:</label>
+            <input type="text" class="form-control-modern" name="contratista" id="contratista" [(ngModel)]="formsData.contratista" placeholder="Contratista">
+            
+            @if(eMcontratista()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMcontratista() }}</span>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <label class="form-label-modern" for="subcontratista">Subcontratista:</label>
+            <input type="text" class="form-control-modern" name="subcontratista" id="subcontratista" [(ngModel)]="formsData.subcontratista" placeholder="Subcontratista">
+            
+            @if(eMsubcontratista()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMsubcontratista() }}</span>
+              </div>
+            }
+          </div>
+          
+          <div class="col-md-6">
+            <label class="form-label-modern" for="proveedor">Proveedores de servicios:</label>
+            <input type="text" class="form-control-modern" name="proveedor" id="proveedor" [(ngModel)]="formsData.proveedor" placeholder="Proveedor">
+            
+            @if(eMproveedor()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMproveedor() }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: Información del Caso -->
+      <div class="form-card mb-4 shadow-sm animate-up">
+        <h2 class="card-title"><i class="bi bi-file-text me-2"></i>II. INFORMACIÓN DEL CASO</h2>
+        <hr class="mb-4 opacity-10">
+
+        <div class="mb-4">
+          <h5 class="fw-bold text-navy mb-3">2.1 Tipo de caso</h5>
+          <p class="text-muted mb-3">¿Qué tipo de reporte realizará?</p>
+          
+          <div class="options-grid">
+            @for(tipo of ['Explotación Sexual', 'Acoso Sexual', 'Abuso Sexual']; track tipo) {
+              <label class="radio-container">
+                <input type="radio" name="tipo_Reporte" [value]="tipo" [(ngModel)]="formsData.tipo_Reporte">
+                <span class="radio-checkmark"></span> {{tipo}}
+              </label>
+            }
+          </div>
+          
+          @if(eMtipo_Reporte()) {
+            <div class="error-box mt-2">
+              <span class="error-icon">!</span>
+              <span>{{ eMtipo_Reporte() }}</span>
+            </div>
+          }
+        </div>
+
+        <div class="mb-4">
+          <h5 class="fw-bold text-navy mb-3">2.2 Breve detalle del incidente</h5>
+          <textarea name="detalle" rows="6" class="form-control-modern" placeholder="Describa los hechos detalladamente..." [(ngModel)]="formsData.detalle"></textarea>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="fw-bold text-navy mb-3">2.3 Documentación entregada por el titular</h5>
+          <div class="file-upload-wrapper mt-2">
+            <input type="file" id="fileUpload" class="file-input">
+            <label for="fileUpload" class="file-label">
+              <i class="bi bi-cloud-arrow-up fs-4 mb-1"></i>
+              <span>Haga clic para subir archivos</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="fw-bold text-navy mb-3">2.4 Lugar y fecha del caso</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label-modern">Lugar del caso:</label>
+              <input type="text" class="form-control-modern" name="lugar-caso" [(ngModel)]="formsData.lugar_caso" placeholder="Lugar específico">
+              
+              @if(eMlugar_caso()) {
+                <div class="error-box mt-2">
+                  <span class="error-icon">!</span>
+                  <span>{{ eMlugar_caso() }}</span>
+                </div>
+              }
+            </div>
+            
+            <div class="col-md-6">
+              <label class="form-label-modern">Fecha del caso:</label>
+              <input type="date" class="form-control-modern" name="fecha-caso" [(ngModel)]="formsData.fecha_caso">
+              
+              @if(eMfecha_caso()) {
+                <div class="error-box mt-2">
+                  <span class="error-icon">!</span>
+                  <span>{{ eMfecha_caso() }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="fw-bold text-navy mb-3">2.5 Persona Sobreviviente</h5>
+          
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label-modern">2.5.1 Sexo:</label>
+              <select class="form-select-modern" name="genero_sobreviviente" [(ngModel)]="formsData.genero_sobreviviente">
+                <option value="" disabled selected>Seleccionar</option>
+                <option value="femenino">Femenino</option>
+                <option value="masculino">Masculino</option>
+                <option value="otro">Otro / Prefiere no especificar</option>
+              </select>
+              
+              @if(eMgenero_sobreviviente()) {
+                <div class="error-box mt-2">
+                  <span class="error-icon">!</span>
+                  <span>{{ eMgenero_sobreviviente() }}</span>
+                </div>
+              }
+            </div>
+            
+            <div class="col-md-4">
+              <label class="form-label-modern">2.5.2 Edad o grupo etario:</label>
+              <select class="form-select-modern" name="edad_sobreviviente" [(ngModel)]="formsData.edad_sobreviviente">
+                <option value="" disabled selected>Seleccionar</option>
+                <option value="menor">Menor de edad (<10 años)</option>
+                <option value="mayor">Persona adulta (≥18 años)</option>
+                <option value="no-especifica">No especificado</option>
+              </select>
+              
+              @if(eMedad_sobreviviente()) {
+                <div class="error-box mt-2">
+                  <span class="error-icon">!</span>
+                  <span>{{ eMedad_sobreviviente() }}</span>
+                </div>
+              }
+            </div>
+            
+            <div class="col-md-4">
+              <label class="form-label-modern">2.5.3 Relación con el proyecto:</label>
+              <select class="form-select-modern" name="relacion_sobreviviente" [(ngModel)]="formsData.relacion_sobreviviente">
+                <option value="" disabled selected>Seleccionar</option>
+                <option value="contratista">Trabajadora del proyecto / contratista</option>
+                <option value="miembro">Miembro de la comunidad</option>
+                <option value="PIU">Personal de la PIU / institución ejecutora</option>
+                <option value="otro">Otro (especifique)</option>
+              </select>
+              
+              @if(eMrelacion_sobreviviente()) {
+                <div class="error-box mt-2">
+                  <span class="error-icon">!</span>
+                  <span>{{ eMrelacion_sobreviviente() }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h5 class="fw-bold text-navy mb-3">2.6 Presunto agresor</h5>
+          
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label-modern">2.6.1 Sexo:</label>
+              <select class="form-select-modern" name="genero_agresor" [(ngModel)]="formsData.genero_agresor">
+                <option value="" disabled selected>Seleccionar</option>
+                <option value="femenino">Femenino</option>
+                <option value="masculino">Masculino</option>
+                <option value="otro">Otro / Prefiere no especificar</option>
+              </select>
+              
+              @if(eMgenero_agresor()) {
+                <div class="error-box mt-2">
+                  <span class="error-icon">!</span>
+                  <span>{{ eMgenero_agresor() }}</span>
+                </div>
+              }
+            </div>
+            
+            <div class="col-md-4">
+              <label class="form-label-modern">2.6.2 Edad o grupo etario:</label>
+              <select class="form-select-modern" name="edad_agresor" [(ngModel)]="formsData.edad_agresor">
+                <option value="" disabled selected>Seleccionar</option>
+                <option value="menor">Menor de edad (<10 años)</option>
+                <option value="mayor">Persona adulta (≥18 años)</option>
+                <option value="no-especifica">No especificado</option>
+              </select>
+              
+              @if(eMedad_agresor()) {
+                <div class="error-box mt-2">
+                  <span class="error-icon">!</span>
+                  <span>{{ eMedad_agresor() }}</span>
+                </div>
+              }
+            </div>
+            
+            <div class="col-md-4">
+              <label class="form-label-modern">2.6.3 Relación con el proyecto:</label>
+              <select class="form-select-modern" name="relacion_agresor" [(ngModel)]="formsData.relacion_agresor">
+                <option value="" disabled selected>Seleccionar</option>
+                <option value="contratista">Trabajadora del proyecto / contratista</option>
+                <option value="miembro">Miembro de la comunidad</option>
+                <option value="PIU">Personal de la PIU / institución ejecutora</option>
+                <option value="otro">Otro (especifique)</option>
+              </select>
+              
+              @if(eMrelacion_agresor()) {
+                <div class="error-box mt-2">
+                  <span class="error-icon">!</span>
+                  <span>{{ eMrelacion_agresor() }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: Observaciones Adicionales -->
+      <div class="form-card mb-4 shadow-sm animate-up">
+        <h2 class="card-title"><i class="bi bi-chat-left-text me-2"></i>III. OBSERVACIONES ADICIONALES</h2>
+        <hr class="mb-4 opacity-10">
+
+        <div class="mb-4">
+          <label class="form-label-modern">Alguna observación que desea agregar:</label>
+          <textarea name="adicional" rows="4" class="form-control-modern" placeholder="Observaciones adicionales..." [(ngModel)]="formsData.adicional"></textarea>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label-modern">Nombre del responsable de la atención:</label>
+            <input type="text" class="form-control-modern" name="nombreresponsable" [(ngModel)]="formsData.nombreresponsable" placeholder="Nombre completo">
+            
+            @if(eMnombreresponsable()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMnombreresponsable() }}</span>
+              </div>
+            }
+          </div>
+          
+          <div class="col-md-6">
+            <label class="form-label-modern">Cargo:</label>
+            <input type="text" class="form-control-modern" name="cargoresonsable" [(ngModel)]="formsData.cargoresonsable" placeholder="Cargo del responsable">
+            
+            @if(eMcargoresonsable()) {
+              <div class="error-box mt-2">
+                <span class="error-icon">!</span>
+                <span>{{ eMcargoresonsable() }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTÓN DE ENVÍO -->
+      <div class="d-grid mb-5">
+        <button type="submit" class="btn-submit-modern py-3 shadow">
+          <i class="bi bi-check-circle-fill me-2"></i>
+          Guardar y Finalizar Reporte
+        </button>
+      </div>
+
+    </form>
+  </div>
 </main>
 
-<footer>
-    <app-footer></app-footer>
+<footer class="footer-modern text-white py-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="mb-0 small">© 2024 Sistema de Reporte de Incidentes EyAS/ASx</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0 small">Todos los derechos reservados</p>
+      </div>
+    </div>
+  </div>
 </footer>

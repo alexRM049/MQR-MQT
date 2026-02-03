@@ -1,0 +1,129 @@
+:host {
+  --primary: #0f2a44;
+  --accent: #2563eb;
+  --muted: #6b7280;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --border: #e5e7eb;
+
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Page */
+.survey-page {
+  background: var(--bg);
+  min-height: 100vh;
+  padding: 3rem 1rem;
+}
+
+/* Header */
+.survey-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.survey-header h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.survey-header p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 680px;
+  margin: 0.5rem auto 0;
+}
+
+/* Card */
+.survey-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 2.5rem;
+  box-shadow: 0 12px 30px rgba(15, 42, 68, 0.08);
+}
+
+/* Question block */
+.question {
+  margin-bottom: 2rem;
+}
+.question-title {
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+.question-help {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+/* Inputs */
+.input-text,
+.input-select,
+.input-textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+.input-text:focus,
+.input-select:focus,
+.input-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* Radio group */
+.radio-group {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+.radio-option input {
+  accent-color: var(--accent);
+}
+
+/* Yes / No grid */
+.quality-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Submit */
+.submit-area {
+  margin-top: 3rem;
+}
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .survey-card {
+    padding: 1.75rem;
+  }
+}

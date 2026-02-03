@@ -1,4 +1,5 @@
 export interface anexo5 {
+  lugar_registro: string,
   nombre: string,
   numeroCaso: string,
   Unidad_Ejecutora: string,

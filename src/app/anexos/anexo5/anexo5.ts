@@ -55,6 +55,7 @@ export class Anexo5Component {
   eMcargoresonsable = signal<string> ('');
 
   formsData: anexo5 ={
+  lugar_registro: '',
   nombre: '',
   numeroCaso:'',
   Unidad_Ejecutora:'',

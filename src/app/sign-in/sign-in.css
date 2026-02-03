@@ -112,3 +112,26 @@ dialog::backdrop {
 body{
   max-height: 5700px;
 }
+
+/* Container that fills the space between header and footer */
+.login-container {
+  min-height: calc(100vh - 150px); /* Adjust 150px based on your header/footer height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
+}
+
+dialog[open] {
+  /* Remove position: fixed and top/bottom settings */
+  position: relative; 
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 400px;
+  background-color: #ffffff;
+  /* Ensure it doesn't try to use native dialog centering */
+  margin: 0; 
+}
